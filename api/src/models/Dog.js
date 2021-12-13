@@ -8,23 +8,23 @@ module.exports = (sequelize) => {
       type: DataTypes.UUID, // creo un id unico para diferenciarlo del id de la API externa
       defaultValue: DataTypes.UUIDV1, 
       allowNull: false,
-      primaryKey : true
+      primaryKey : true // check
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     height: {
-      type: DataTypes.TINYINT, // 256 max or string?
+      type: DataTypes.SMALLINT, // or string?
       allowNull: false,
     },
     weight: {
-      type: DataTypes.TINYINT, // 256 max or string?
+      type: DataTypes.SMALLINT, // or string?
       allowNull: false,
     },
     // should use camelcase to name tables
     life_span: {
-      type: DataTypes.TINYINT,
+      type: DataTypes.SMALLINT,
     },
     // Agrego un campo image con una imagen por default?
   });
