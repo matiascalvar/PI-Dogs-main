@@ -36,30 +36,17 @@ conn.sync({ force: true }).then(() => {
           }
         })
         let unfilteredFlattenTemps = unfilteredTemps.flat()
-        const filteredTemps = new Set();
+        var filteredTemps = new Set();
         for (const temp in unfilteredFlattenTemps) {
           if (unfilteredFlattenTemps[temp] !== undefined) {
             filteredTemps.add(unfilteredFlattenTemps[temp])
           }
         }
-        // console.log(typeof filteredTemps)
+        filteredTemps = Array.from(filteredTemps)
+        // console.log((filteredTemps))
        
-        // for (let j = 0; j < filteredTemps.length; j++) {
-        //   // const temper = Temperament.create({ name: 'filteredTemps[j]' });
-        //   console.log("wep")
-        // }
-        // for (const temp in filteredTemps) {
-        //   // let temper = Temperament.create({ name: temp });
-        //   console.log("wep")
-        // }
-        // async (e) => {
-        //   await Temperament.findOrCreate({
-        //     where: { name: e }
-        //   })
-        // }
-        
-        // const temper = Temperament.create({ name: filteredTemps[0] });
-        const jane = Temperament.create({ name: "Jane" });
+        const tempsFinal = filteredTemps.map(temp => Temperament.create({name: temp}))
+
       })
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
