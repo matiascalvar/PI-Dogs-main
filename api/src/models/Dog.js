@@ -6,7 +6,7 @@ module.exports = (sequelize) => {
   sequelize.define('dog', { // change to 'raza'?
     id: {
       type: DataTypes.UUID, // creo un id unico para diferenciarlo del id de la API externa
-      defaultValue: DataTypes.UUIDV1, 
+      defaultValue: DataTypes.UUIDV4, 
       allowNull: false,
       primaryKey : true // check
     },
@@ -15,16 +15,16 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     height: {
-      type: DataTypes.SMALLINT, // or string?
+      type: DataTypes.STRING, // or string?
       allowNull: false,
     },
     weight: {
-      type: DataTypes.SMALLINT, // or string?
+      type: DataTypes.STRING, // or string?
       allowNull: false,
     },
     // should use camelcase to name tables
     life_span: {
-      type: DataTypes.SMALLINT,
+      type: DataTypes.STRING,
     },
     // Agrego un campo image con una imagen por default?
   });
