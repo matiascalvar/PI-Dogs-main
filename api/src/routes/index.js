@@ -1,7 +1,8 @@
 const { Router } = require('express');
 const axios = require('axios');
 const { Dog, Temperament } = require('../db.js')
-const {Sequelize} = require('sequelize');
+const { Sequelize } = require('sequelize');
+const {API_KEY} = process.env
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -14,7 +15,7 @@ const router = Router();
 router.get('/dogs', function (req, res) {
 // Obtener un listado de las razas de perro
     // llamar a la API externa y a la db local
-    axios.get('https://api.thedogapi.com/v1/breeds')
+    axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
         .then( async function (response) {
             // console.log("respuesta de la api", response.data)
             var breeds = response.data.map(breed => breed.name) 
