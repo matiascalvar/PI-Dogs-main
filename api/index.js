@@ -27,11 +27,11 @@ const { Temperament } = require('./src/db.js')
 
 conn.sync({ force: true }).then(() => {
   server.listen(3001, () => {
-    // Popular el modelo de temperamentos desde aca?
+    
     axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
       .then((response) => {
         let unfilteredTemps = response.data.map(breed => {
-          if (breed.temperament !== undefined) {
+          if (breed.temperament !== undefined) { // Probar con !== " "
             return breed.temperament.split(',')
           }
         })
@@ -43,9 +43,9 @@ conn.sync({ force: true }).then(() => {
           }
         }
         filteredTemps = Array.from(filteredTemps)
-        // console.log((filteredTemps))
+        console.log((filteredTemps))
        
-        const tempsFinal = filteredTemps.map(temp => Temperament.create({name: temp}))
+        const tempsFinal = filteredTemps.map(temp => Temperament.create({name: temp.trim()}))
 
       })
     console.log('%s listening at 3001'); // eslint-disable-line no-console
