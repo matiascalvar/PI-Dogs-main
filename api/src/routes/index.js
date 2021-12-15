@@ -91,7 +91,7 @@ router.get('/dogs/:idRaza', function (req, res) {
         })
     
 })
-
+// Si hago el get muy rápido, mi db aun no tiene los temperaments
 router.get('/temperament', async function (req, res) {
     let temps = await Temperament.findAll()
     // console.log(temps)
@@ -106,8 +106,23 @@ router.get('/temperament', async function (req, res) {
 // [ ] POST /dog:
 // Recibe los datos recolectados desde el formulario controlado de la ruta de creación de raza de perro por body
 // Crea una raza de perro en la base de datos
+// Nombre
+// Altura (Diferenciar entre altura mínima y máxima)
+// Peso (Diferenciar entre peso mínimo y máximo)
+// Años de vida
+// Posibilidad de seleccionar/agregar uno o más temperamentos
 router.post('/dog', function (req, res) {
-    res.send("Trying to post smh, eh? ")
+    let { name, height, weight, lifeSpan } = req.body
+    let temps = req.body.temps
+    // Ahora hay que crear el perro en la db
+    const dog = Dog.create({
+            name,
+            weight,
+            height,
+            life_span: lifeSpan,
+            
+        });
+    res.json({name, height, weight, lifeSpan, temps})
 })
 
 
