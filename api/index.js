@@ -25,8 +25,8 @@ const { Dog, Temperament } = require('./src/db.js')
 
 
 // Syncing all the models at once.
-
-conn.sync({force : true}).then(() => {
+// {force : true}
+conn.sync().then(() => {
   server.listen(3001, () => {
     
     axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
@@ -49,11 +49,11 @@ conn.sync({force : true}).then(() => {
         const tempsFinal = filteredTemps.map(temp => Temperament.create({name: temp.trim()}))
  
         const callejero2 = Dog.create({
-          name: "pulgoso",
+          name: "Pulgoso Dog",
           weight: '12',
           height: '22'
         });
-        // console.log(callejero2.toJSON())
+        
         // let dogTempered = callejero2.addTemperaments('MORDEDOR')
       })
     
