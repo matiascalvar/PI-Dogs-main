@@ -92,8 +92,23 @@ router.get('/dogs/:idRaza', function (req, res) {
     
 })
 
+router.get('/temperament', async function (req, res) {
+    let temps = await Temperament.findAll()
+    // console.log(temps)
+    if (temps.length > 0) {
+      res.json(temps)  
+    } else {
+        res.status(404).send("Error getting temperaments")
+    }
+    
+})
 
-
+// [ ] POST /dog:
+// Recibe los datos recolectados desde el formulario controlado de la ruta de creación de raza de perro por body
+// Crea una raza de perro en la base de datos
+router.post('/dog', function (req, res) {
+    res.send("Trying to post smh, eh? ")
+})
 
 
 

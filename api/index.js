@@ -26,14 +26,14 @@ const { Dog, Temperament } = require('./src/db.js')
 
 // Syncing all the models at once.
 // {force : true}
-conn.sync().then(() => {
+conn.sync({force : true}).then(() => {
   server.listen(3001, () => {
     
     axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
-      .then((response) => {
+      .then(async (response) => {
         let unfilteredTemps = response.data.map(breed => {
           if (breed.temperament !== undefined) { // Probar con !== " "
-            return breed.temperament.split(',') [[" "],["cariñoso, amable"]]
+            return breed.temperament.split(',')
           }
         })
         let unfilteredFlattenTemps = unfilteredTemps.flat()
@@ -46,7 +46,7 @@ conn.sync().then(() => {
         filteredTemps = Array.from(filteredTemps)
         // console.log((filteredTemps))
        
-        const tempsFinal = filteredTemps.map(temp => Temperament.create({name: temp.trim()}))
+        const tempsFinal = await filteredTemps.map(temp => Temperament.create({name: temp.trim()}))
  
         const callejero2 = Dog.create({
           name: "Pulgoso Dog",
