@@ -7,7 +7,6 @@ module.exports = (sequelize) => {
     id: {
       type: DataTypes.UUID, // creo un id unico para diferenciarlo del id de la API externa
       defaultValue: DataTypes.UUIDV4, 
-      allowNull: false,
       primaryKey : true // check
     },
     name: {
@@ -27,5 +26,5 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
     },
     // Agrego un campo image con una imagen por default?
-  });
+  }, { timestamps: false});
 };
