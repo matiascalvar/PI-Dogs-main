@@ -12,26 +12,28 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 // router.route('/dogs').get()...
 // Returns an instance of a single route which you can then use to handle HTTP verbs with optional middleware. Use router.route() to avoid duplicate route naming and thus typing errors.
-
+var tempss
 function getBreeds() {
     let breedsAPI = axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
     .then( async function (response) {
-            var breeds = response.data.map(breed => (
-                {   
-                    id: breed.id,
-                    name: breed.name, // pasar todo a minuscula
-                    weight: `${breed.weight.metric}Kg`,
-                    image: breed.image.url,
-                    temperament : breed.temperament
+        var breeds = response.data.map(breed => (
+            {   
+                id: breed.id,
+                name: breed.name, // pasar todo a minuscula
+                weight: `${breed.weight.metric}Kg`,
+                image: breed.image.url,
+                temperament : breed.temperament
+            }))
+        const breedsFromDb = (await Dog.findAll({ include: "temperaments" })).map(breed => (
+            {
+                id: breed.id,
+                name: breed.name,
+                weight: `${breed.weight}Kg`,
+                temperament: breed.temperaments ?
+                    (([tempss] = breed.temperaments).map(e => e.name)).join(', ')  
+                    : ""
                 }))
-            const breedsFromDb = (await Dog.findAll({ includes: "temperaments" })).map(breed => (
-                {
-                    id: breed.id,
-                    name: breed.name,
-                    weight: `${breed.weight}Kg`,
-                    temperament : breed.temperaments? breed.temperaments : ""
-                }))
-            return allBreeds = breeds.concat(breedsFromDb)
+        return allBreeds = breeds.concat(breedsFromDb)
     })
     return breedsAPI
 }
@@ -91,10 +93,10 @@ router.get('/dogs/:idRaza', function (req, res) {
         })
     
 })
-// Si hago el get muy rápido, mi db aun no tiene los temperaments
+
 router.get('/temperament', async function (req, res) {
     let temps = await Temperament.findAll()
-    // console.log(temps)
+
     if (temps.length > 0) {
       res.json(temps)  
     } else {
@@ -103,14 +105,6 @@ router.get('/temperament', async function (req, res) {
     
 })
 
-// [ ] POST /dog:
-// Recibe los datos recolectados desde el formulario controlado de la ruta de creación de raza de perro por body
-// Crea una raza de perro en la base de datos
-// Nombre
-// Altura (Diferenciar entre altura mínima y máxima)
-// Peso (Diferenciar entre peso mínimo y máximo)
-// Años de vida
-// Posibilidad de seleccionar/agregar uno o más temperamentos
 router.post('/dog', async function (req, res) {
     let { name, height, weight, lifeSpan, temps } = req.body
     var arrTemps = []

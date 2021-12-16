@@ -28,7 +28,7 @@ const { Dog, Temperament } = require('./src/db.js')
 // {force : true}
 conn.sync({force : true}).then(() => {
   server.listen(3001, () => {
-    
+    // Carga de temperaments desde API externa
     axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
       .then(async (response) => {
         let unfilteredTemps = response.data.map(breed => {
@@ -44,31 +44,21 @@ conn.sync({force : true}).then(() => {
           }
         }
         filteredTemps = Array.from(filteredTemps)
-        // console.log((filteredTemps))
        
         const tempsFinal = await filteredTemps.map(temp => Temperament.create({name: temp.trim()}))
- 
-        // const callejero2 = Dog.create({
-        //   name: "Pulgoso Dog",
-        //   weight: '12',
-        //   height: '22',
-        //   temperaments: [{name: "Friendly"}, {name: "Loyal"}]
-        // }, {includes : "temperaments"});
-        
-        // let dogTempered = callejero2.addTemperaments('MORDEDOR')
+
       })
+      // CARGA DE PERRO DE PRUEBA. BORRAR LUEGO
       .then(async () => {
       let callejero2 = await Dog.create({
         name: "Pulgoso Dog",
         weight: '122',
         height: '22',
-        // Podria primero chequear si existe el temp y agregarlo con addTemperament. Sino pasarlo como aca abajo
         temperaments: [{name: "Curious"}, {name: "Friendly"}]
       }, { include: "temperaments" });
         
         let addingTemp = await callejero2.addTemperaments("3")
         // console.log(Dog.prototype)
-        // console.log(callejero2)
     })
     .catch((e) => {
         console.log(e)
