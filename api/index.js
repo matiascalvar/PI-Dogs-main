@@ -40,7 +40,7 @@ conn.sync({force : true}).then(() => {
         var filteredTemps = new Set();
         for (const temp in unfilteredFlattenTemps) {
           if (unfilteredFlattenTemps[temp] !== undefined) {
-            filteredTemps.add(unfilteredFlattenTemps[temp])
+            filteredTemps.add(unfilteredFlattenTemps[temp].trim())
           }
         }
         filteredTemps = Array.from(filteredTemps)
@@ -48,15 +48,31 @@ conn.sync({force : true}).then(() => {
        
         const tempsFinal = await filteredTemps.map(temp => Temperament.create({name: temp.trim()}))
  
-        const callejero2 = Dog.create({
-          name: "Pulgoso Dog",
-          weight: '12',
-          height: '22'
-        });
+        // const callejero2 = Dog.create({
+        //   name: "Pulgoso Dog",
+        //   weight: '12',
+        //   height: '22',
+        //   temperaments: [{name: "Friendly"}, {name: "Loyal"}]
+        // }, {includes : "temperaments"});
         
         // let dogTempered = callejero2.addTemperaments('MORDEDOR')
       })
-    
+      .then(async () => {
+      let callejero2 = await Dog.create({
+        name: "Pulgoso Dog",
+        weight: '122',
+        height: '22',
+        // Podria primero chequear si existe el temp y agregarlo con addTemperament. Sino pasarlo como aca abajo
+        temperaments: [{name: "Curious"}, {name: "Friendly"}]
+      }, { include: "temperaments" });
+        
+        let addingTemp = await callejero2.addTemperaments("3")
+        // console.log(Dog.prototype)
+        // console.log(callejero2)
+    })
+    .catch((e) => {
+        console.log(e)
+    })
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
   

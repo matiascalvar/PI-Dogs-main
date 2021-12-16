@@ -19,17 +19,17 @@ function getBreeds() {
             var breeds = response.data.map(breed => (
                 {   
                     id: breed.id,
-                    name: breed.name,
+                    name: breed.name, // pasar todo a minuscula
                     weight: `${breed.weight.metric}Kg`,
                     image: breed.image.url,
                     temperament : breed.temperament
                 }))
-            const breedsFromDb = (await Dog.findAll({ includes: Temperament })).map(breed => (
+            const breedsFromDb = (await Dog.findAll({ includes: "temperaments" })).map(breed => (
                 {
                     id: breed.id,
                     name: breed.name,
                     weight: `${breed.weight}Kg`,
-                    temperament : breed.temperament
+                    temperament : breed.temperaments? breed.temperaments : ""
                 }))
             return allBreeds = breeds.concat(breedsFromDb)
     })
@@ -111,21 +111,28 @@ router.get('/temperament', async function (req, res) {
 // Peso (Diferenciar entre peso mínimo y máximo)
 // Años de vida
 // Posibilidad de seleccionar/agregar uno o más temperamentos
-router.post('/dog', function (req, res) {
-    let { name, height, weight, lifeSpan } = req.body
-    let temps = req.body.temps
-    // Ahora hay que crear el perro en la db
-    const dog = Dog.create({
-            name,
-            weight,
-            height,
-            life_span: lifeSpan,
-            
-        });
+router.post('/dog', async function (req, res) {
+    let { name, height, weight, lifeSpan, temps } = req.body
+    var arrTemps = []
+
+    for (let i = 0; i < temps.length; i++) {
+        let tempSearched = await Temperament.findOne({ where: { name: temps[i] } });
+        if (tempSearched !== null) {
+            arrTemps.push (tempSearched.dataValues.id)
+        }        
+    }
+
+    const dog = await Dog.create({
+        name,
+        weight,
+        height,
+        life_span: lifeSpan,
+    });
+    arrTemps.forEach(async (temp) => (await dog.addTemperaments(temp)))
+ 
     res.json({name, height, weight, lifeSpan, temps})
 })
-
-
+ 
 
 
 module.exports = router;
