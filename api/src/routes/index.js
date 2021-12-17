@@ -21,18 +21,25 @@ function getBreeds() {
                 id: breed.id,
                 name: breed.name, // pasar todo a minuscula
                 weight: `${breed.weight.metric}Kg`,
+                height: `${breed.height.metric}cm`,
+                life_span: breed.life_span,
                 image: breed.image.url,
-                temperament : breed.temperament
+                temperament: breed.temperament,
+                origin: "api"
             }))
         const breedsFromDb = (await Dog.findAll({ include: "temperaments" })).map(breed => (
             {
                 id: breed.id,
                 name: breed.name,
                 weight: `${breed.weight}Kg`,
+                height: `${breed.height}cm`,
+                life_span: breed.life_span,
+                image: breed.image,
                 temperament: breed.temperaments ?
                     (([tempss] = breed.temperaments).map(e => e.name)).join(', ')  
-                    : ""
-                }))
+                    : "",
+                origin: breed.origin
+            }))
         return allBreeds = breeds.concat(breedsFromDb)
     })
     return breedsAPI
@@ -120,11 +127,12 @@ router.post('/dog', async function (req, res) {
         name,
         weight,
         height,
-        life_span: lifeSpan,
+        life_span: `${lifeSpan} years`,
+        origin: "db"
     });
     arrTemps.forEach(async (temp) => (await dog.addTemperaments(temp)))
  
-    res.json({name, height, weight, lifeSpan, temps})
+    res.json(dog)
 })
  
 

@@ -53,9 +53,10 @@ conn.sync({force : true}).then(() => {
       let callejero2 = await Dog.create({
         name: "Pulgoso Dog",
         weight: '122',
-        height: '22',
-        temperaments: [{name: "Curious"}, {name: "Friendly"}]
-      }, { include: "temperaments" });
+        height: '22'
+        // temperaments: [{name: "Curious"}, {name: "Friendly"}]
+      })
+        // , { include: "temperaments" });
         
         let addingTemp = await callejero2.addTemperaments("3")
         // console.log(Dog.prototype)
