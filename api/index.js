@@ -53,7 +53,8 @@ conn.sync({force : true}).then(() => {
       let callejero2 = await Dog.create({
         name: "Pulgoso Dog",
         weight: '122',
-        height: '22'
+        height: '22',
+        origin: "db"
         // temperaments: [{name: "Curious"}, {name: "Friendly"}]
       })
         // , { include: "temperaments" });

@@ -19,8 +19,8 @@ function getBreeds() {
         var breeds = response.data.map(breed => (
             {   
                 id: breed.id,
-                name: breed.name, // pasar todo a minuscula
-                weight: `${breed.weight.metric}Kg`,
+                name: breed.name.toLowerCase(), // pasar todo a minuscula
+                weight: `${breed.weight.metric}kg`,
                 height: `${breed.height.metric}cm`,
                 life_span: breed.life_span,
                 image: breed.image.url,
@@ -31,7 +31,7 @@ function getBreeds() {
             {
                 id: breed.id,
                 name: breed.name,
-                weight: `${breed.weight}Kg`,
+                weight: `${breed.weight}kg`,
                 height: `${breed.height}cm`,
                 life_span: breed.life_span,
                 image: breed.image,
@@ -54,7 +54,7 @@ router.get('/dogs', function (req, res) {
             let { name } = req.query
             // Pongo en mayus la 1º letra del nombre que me llegue, bc asi esta en la api
             // Ojo que puede contener dos palabras ambas capitalizadas RESOLVER
-            name = name.charAt(0).toUpperCase() + name.slice(1)
+            // name = name.charAt(0).toUpperCase() + name.slice(1)
             let found = false
             let breedsWithName= []
             for (let i = 0; i < allBreeds.length; i++) {
@@ -135,6 +135,4 @@ router.post('/dog', async function (req, res) {
     res.json(dog)
 })
  
-
-
 module.exports = router;
