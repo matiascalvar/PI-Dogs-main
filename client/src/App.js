@@ -1,16 +1,15 @@
 import './App.css';
-import { BrowserRouter  as Router, Routes, Route }from "react-router-dom";
-import Test  from './components/Test.jsx';
-import Nav  from './components/Nav.jsx';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home  from './components/Home.jsx';
+import LandingPage  from './components/LandingPage.jsx';
 function App() {
   return (
     <Router>
       <div className="App">
-        
-        <Nav />
-        <h1>Henry Dogs</h1>
+
         <Routes>
-          <Route path="/" element={<Test />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/home" element={<Home />}/>
         </Routes>
         
       </div>
