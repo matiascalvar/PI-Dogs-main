@@ -40,7 +40,7 @@ function getBreeds() {
                     : "",
                 origin: breed.origin
             }))
-        return allBreeds = breeds.concat(breedsFromDb)
+        return allBreeds = breeds.concat(breedsFromDb).sort((a, b) => a.name.localeCompare(b.name))
     })
     return breedsAPI
 }

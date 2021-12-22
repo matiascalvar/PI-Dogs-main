@@ -51,8 +51,8 @@ conn.sync({force : true}).then(() => {
       // CARGA DE PERRO DE PRUEBA. BORRAR LUEGO
       .then(async () => {
       let callejero2 = await Dog.create({
-        name: "Pulgoso Dog",
-        weight: '122',
+        name: "Abbastanza Pulgoso Dog",
+        weight: '12',
         height: '22',
         origin: "db"
         // temperaments: [{name: "Curious"}, {name: "Friendly"}]
