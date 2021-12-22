@@ -1,10 +1,11 @@
-function Cards() {
+function Cards({ name, image, temperament, weight }) {
+  // console.log(breeds);
   return (
     <>
-      <p>Name</p>
-      <p>Image</p>
-      <p>Temperament</p>
-      <p>Weight</p>
+      <p>Name: {name}</p>
+      <img src={`${image}`} alt={`${name}`} />
+      <p>Temperament: {temperament}</p>
+      <p>Weight: {weight}</p>
     </>
   );
 }
