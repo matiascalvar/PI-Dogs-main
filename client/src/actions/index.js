@@ -1,7 +1,8 @@
 const axios = require('axios')
 export const GET_BREEDS = 'GET_BREEDS';
 export const GET_TEMPERAMENT = 'GET_TEMPERAMENT';
-
+export const ORDER_ZA = 'ORDER_ZA';
+export const ORDER_AZ = 'ORDER_AZ';
 
 // export function getBreeds () {
 //     return async function (dispatch) {
@@ -33,3 +34,6 @@ export const getTemps = () => async dispatch => {
     const temps = await axios.get("http://localhost:3001/temperament")
     dispatch({type: 'GET_TEMPERAMENT', payload: temps.data})
 }
+
+export const breedZA = { type: ORDER_ZA };
+export const breedAZ = { type: ORDER_AZ };

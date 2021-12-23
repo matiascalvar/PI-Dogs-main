@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Card from "./Card";
 import { getBreeds } from "../actions/index";
 
 function Cards() {
   const dispatch = useDispatch();
-  const breeds = useSelector((state) => state.breeds);
+  const breeds = useSelector((state) => state.breeds.slice(0, 8));
 
+  // useEffect se ejecuta cuando se termina de renderizar el componente
+  // useDispatch despacha una action al store
   useEffect(() => {
     dispatch(getBreeds());
   }, [dispatch]);
@@ -31,3 +33,5 @@ function Cards() {
 // export default connect(mapStateToProps, { getBreeds })(Cards);
 
 export default Cards;
+
+// asd

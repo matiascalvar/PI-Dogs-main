@@ -54,6 +54,7 @@ conn.sync({force : true}).then(() => {
         name: "Abbastanza Pulgoso Dog",
         weight: '12',
         height: '22',
+        life_span: '10',
         origin: "db"
         // temperaments: [{name: "Curious"}, {name: "Friendly"}]
       })
