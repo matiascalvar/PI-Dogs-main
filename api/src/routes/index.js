@@ -68,7 +68,7 @@ router.get('/dogs', function (req, res) {
                 
             }
             else {
-                res.status(404).send("ERROR: dog not found.")
+                res.status(404).send('<h1>ERROR: breed not found. Try again!</h1>')
             }
         }
         else {
@@ -95,7 +95,7 @@ router.get('/dogs/:idRaza', function (req, res) {
             if (found) {
                 res.json(breedFound)
             } else {
-                res.status(404).send("ERROR: Dog not found")
+                res.status(404).send('<h1>ERROR: breed not found. Try again!</h1>')
             } 
         })
     

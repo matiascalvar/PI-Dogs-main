@@ -11,6 +11,11 @@ function SearchBar({ orderZA, orderAZ, weightASC, weightDESC }) {
   //   e.preventDefault();
   // };
 
+  // Podria hacer un action creator
+  function handleChange(e) {
+    console.log(e.target.value);
+  }
+
   return (
     <>
       <button onClick={orderAZ} type="submit">
@@ -25,9 +30,17 @@ function SearchBar({ orderZA, orderAZ, weightASC, weightDESC }) {
       <button onClick={weightDESC} type="submit">
         Weight DESC
       </button>
+      <button type="submit">Temperaments</button>
+      <button type="submit">API or DB</button>
+      {/* https://www.w3schools.com/howto/howto_css_switch.asp */}
+
+      <select name="weight" id="weight" onChange={handleChange}>
+        <option value="">Weight Sort</option>
+        <option value="ASC">Ascending Order</option>
+        <option value="DESC">Descending Order</option>
+      </select>
     </>
   );
 }
 
 export default SearchBar;
-// BUG: Si se va al landing page, al volver al home y querer ordenar, los elementos se duplican

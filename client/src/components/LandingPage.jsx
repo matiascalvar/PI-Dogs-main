@@ -4,7 +4,9 @@ function LandingPage() {
   return (
     <>
       <h1>Welcome to Dogs PI!</h1>
-      <Link to="/home">Home</Link>
+      <Link to="/home">
+        <button>Home</button>
+      </Link>
     </>
   );
 }
