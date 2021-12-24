@@ -1,4 +1,4 @@
-import { GET_BREEDS, GET_TEMPERAMENT, ORDER_ZA, ORDER_AZ } from "../actions";
+import { GET_BREEDS, GET_TEMPERAMENT, ORDER_ZA, ORDER_AZ, WEIGHT_ASC, WEIGHT_DESC } from "../actions";
 
 var initialState = {
     breeds: [],
@@ -6,13 +6,6 @@ var initialState = {
     breedSearched: []
 }
 
-/*
-{e.name}
-weight={e.weight}
-temperament={e.temperament}
-image={e.image}
-key={e.id}
-*/
 export default function reducer (state = initialState, action) {
   switch (action.type) {
       case GET_BREEDS:
@@ -36,6 +29,32 @@ export default function reducer (state = initialState, action) {
           return {
               ...state,
               breeds: state.breeds.sort((a, b) => a.name.localeCompare(b.name))
+          };
+      case WEIGHT_ASC:
+          return {
+              ...state,
+              breeds: state.breeds.sort((a, b) => { 
+                if(a.weight.split(' - ').length === 2) {
+                   var x = ((parseInt(a.weight.split(' - ')[0]) + parseInt(a.weight.split(' - ')[1])) / 2).toString()
+                } else { var x = parseInt(a.weight.split(' - ')[0]).toString() }
+                if(b.weight.split(' - ').length === 2){
+                   var y = ((parseInt(b.weight.split(' - ')[0]) + parseInt(b.weight.split(' - ')[1])) / 2).toString()
+                } else { var y = parseInt(b.weight.split(' - ')[0]).toString() }
+                return x - y
+              })
+          };
+      case WEIGHT_DESC:
+          return {
+              ...state,
+              breeds: state.breeds.sort((a, b) => { 
+                if(a.weight.split(' - ').length === 2) {
+                   var x = ((parseInt(a.weight.split(' - ')[0]) + parseInt(a.weight.split(' - ')[1])) / 2).toString()
+                } else { var x = parseInt(a.weight.split(' - ')[0]).toString() }
+                if(b.weight.split(' - ').length === 2){
+                   var y = ((parseInt(b.weight.split(' - ')[0]) + parseInt(b.weight.split(' - ')[1])) / 2).toString()
+                } else { var y = parseInt(b.weight.split(' - ')[0]).toString() }
+                return y - x
+              })
           };
 
       default:

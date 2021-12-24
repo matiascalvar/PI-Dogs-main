@@ -5,9 +5,9 @@ import Cards from "./Cards";
 function Home() {
   return (
     <>
+      <Link to="/">Return to landing page</Link>
       <Nav />
       <Cards />
-      <Link to="/">Return to landing page</Link>
     </>
   );
 }

@@ -3,6 +3,9 @@ export const GET_BREEDS = 'GET_BREEDS';
 export const GET_TEMPERAMENT = 'GET_TEMPERAMENT';
 export const ORDER_ZA = 'ORDER_ZA';
 export const ORDER_AZ = 'ORDER_AZ';
+export const WEIGHT_ASC = 'WEIGHT_ASC';
+export const WEIGHT_DESC = 'WEIGHT_DESC';
+
 
 // export function getBreeds () {
 //     return async function (dispatch) {
@@ -35,5 +38,8 @@ export const getTemps = () => async dispatch => {
     dispatch({type: 'GET_TEMPERAMENT', payload: temps.data})
 }
 
-export const breedZA = { type: ORDER_ZA };
+export const breedZA = {type: ORDER_ZA};
 export const breedAZ = { type: ORDER_AZ };
+
+export const weightASC = { type: WEIGHT_ASC };
+export const weightDESC = { type: WEIGHT_DESC };

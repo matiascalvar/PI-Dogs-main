@@ -1,22 +1,29 @@
 import React from "react";
+import { weightDESC } from "../../actions";
 
-function SearchBar({ orderZA, orderAZ }) {
-  const orderHandlerZA = function (e) {
-    orderZA();
-    e.preventDefault();
-  };
-  const orderHandlerAZ = function (e) {
-    orderAZ();
-    e.preventDefault();
-  };
+function SearchBar({ orderZA, orderAZ, weightASC, weightDESC }) {
+  // const orderHandlerZA = function (e) {
+  //   orderZA();
+  //   e.preventDefault();
+  // };
+  // const orderHandlerAZ = function (e) {
+  //   orderAZ();
+  //   e.preventDefault();
+  // };
 
   return (
     <>
-      <button onClick={orderHandlerAZ} type="submit">
+      <button onClick={orderAZ} type="submit">
         A-Z
       </button>
-      <button onClick={orderHandlerZA} type="submit">
+      <button onClick={orderZA} type="submit">
         Z-A
+      </button>
+      <button onClick={weightASC} type="submit">
+        Weight ASC
+      </button>
+      <button onClick={weightDESC} type="submit">
+        Weight DESC
       </button>
     </>
   );

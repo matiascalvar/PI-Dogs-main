@@ -20,8 +20,8 @@ function getBreeds() {
             {   
                 id: breed.id,
                 name: breed.name.toLowerCase(), // pasar todo a minuscula
-                weight: `${breed.weight.metric}kg`,
-                height: `${breed.height.metric}cm`,
+                weight: breed.weight.metric.replace('NaN - ','').replace('NaN','26'),
+                height: breed.height.metric,
                 life_span: breed.life_span,
                 image: breed.image.url,
                 temperament: breed.temperament,
@@ -31,8 +31,8 @@ function getBreeds() {
             {
                 id: breed.id,
                 name: breed.name,
-                weight: `${breed.weight}kg`,
-                height: `${breed.height}cm`,
+                weight: breed.weight,
+                height: breed.height,
                 life_span: breed.life_span,
                 image: breed.image,
                 temperament: breed.temperaments ?

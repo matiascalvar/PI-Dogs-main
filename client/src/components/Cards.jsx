@@ -15,6 +15,7 @@ function Cards() {
   return (
     <>
       <h3>Main cards block. Here should render 8 breed cards per page</h3>
+      <p>(We have {breeds.length} breeds in the sliced store)</p>
       {breeds.map((e) => (
         <Card
           name={e.name}

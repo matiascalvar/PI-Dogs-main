@@ -3,7 +3,7 @@ function Cards({ name, image, temperament, weight }) {
   return (
     <>
       <h3>Name: {name}</h3>
-      <img src={`${image}`} alt={`${name}`} width="630" />
+      <img src={`${image}`} alt={`${name}`} width="700" />
       <p>Temperament: {temperament}</p>
       <p>Weight: {weight}</p>
     </>
