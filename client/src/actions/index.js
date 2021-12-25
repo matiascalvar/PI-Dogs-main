@@ -6,6 +6,40 @@ export const ORDER_AZ = 'ORDER_AZ';
 export const WEIGHT_ASC = 'WEIGHT_ASC';
 export const WEIGHT_DESC = 'WEIGHT_DESC';
 
+export const getBreeds = () => async dispatch => {
+    const response = await axios.get("http://localhost:3001/dogs")
+    dispatch({type: 'GET_BREEDS', payload: response.data})
+}
+
+export const getTemps = () => async dispatch => {
+    const temps = await axios.get("http://localhost:3001/temperament")
+    dispatch({type: 'GET_TEMPERAMENT', payload: temps.data})
+}
+
+export function weightAndAlpha(option) {
+  return { type: option}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // export function getBreeds () {
 //     return async function (dispatch) {
@@ -17,12 +51,6 @@ export const WEIGHT_DESC = 'WEIGHT_DESC';
 //     }
 // }
 
-export const getBreeds = () => async dispatch => {
-    const response = await axios.get("http://localhost:3001/dogs")
-    dispatch({type: 'GET_BREEDS', payload: response.data})
-}
-
-
 // export function getTemps () {
 //     return async function (dispatch) {
 //         try {
@@ -32,14 +60,3 @@ export const getBreeds = () => async dispatch => {
 //         catch (e) { console.log(e) }
 //     }
 // }
-
-export const getTemps = () => async dispatch => {
-    const temps = await axios.get("http://localhost:3001/temperament")
-    dispatch({type: 'GET_TEMPERAMENT', payload: temps.data})
-}
-
-export const breedZA = {type: ORDER_ZA};
-export const breedAZ = { type: ORDER_AZ };
-
-export const weightASC = { type: WEIGHT_ASC };
-export const weightDESC = { type: WEIGHT_DESC };

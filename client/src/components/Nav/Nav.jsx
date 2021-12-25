@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import { useDispatch, useSelector } from "react-redux";
-import { breedZA, breedAZ, weightASC, weightDESC } from "../../actions";
+import { weightAndAlpha } from "../../actions";
 
 function Nav() {
   const dispatch = useDispatch();
@@ -10,28 +10,14 @@ function Nav() {
   //   dispatch(breedZA);
   // }, [dispatch]);
 
-  const orderZA = function () {
-    dispatch(breedZA);
-  };
-  const orderAZ = function () {
-    dispatch(breedAZ);
-  };
-  const orderWeightASC = function () {
-    dispatch(weightASC);
-  };
-  const orderWeightDESC = function () {
-    dispatch(weightDESC);
+  const weightAndAlphaAction = function (option) {
+    dispatch(weightAndAlpha(option));
   };
 
   return (
     <>
-      <h1>----This is a navbar----</h1>
-      <SearchBar
-        orderZA={orderZA}
-        orderAZ={orderAZ}
-        weightASC={orderWeightASC}
-        weightDESC={orderWeightDESC}
-      />
+      <h2>----This is a navbar----</h2>
+      <SearchBar weightAlpha={weightAndAlphaAction} />
     </>
   );
 }

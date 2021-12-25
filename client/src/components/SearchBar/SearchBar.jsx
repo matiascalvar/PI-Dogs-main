@@ -20,17 +20,10 @@ function SearchBar({ weightAlpha }) {
         <span> Weight: </span>
         <select name="weight" id="weight" onChange={handleChange}>
           {/* <option value="">Weight Sort</option> */}
-          <option value="WEIGHT_ASC">▼</option>
-          <option value="WEIGHT_DESC">▲</option>
+          <option value="WEIGHT_ASC">🡇</option>
+          <option value="WEIGHT_DESC">🡅</option>
         </select>
       </label>
-
-      {/* <button onClick={orderAZ} type="submit">
-        A-Z
-      </button>
-      <button onClick={orderZA} type="submit">
-        Z-A
-      </button> */}
 
       <button type="submit">Temperaments</button>
       <button type="submit">API or DB or All</button>
