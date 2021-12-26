@@ -33,26 +33,28 @@ export default function reducer (state = initialState, action) {
       case WEIGHT_ASC:
           return {
               ...state,
-              breeds: state.breeds.sort((a, b) => { 
+              breeds: state.breeds.sort((a, b) => {
+                  var x, y
                 if(a.weight.split(' - ').length === 2) {
-                   var x = ((parseInt(a.weight.split(' - ')[0]) + parseInt(a.weight.split(' - ')[1])) / 2).toString()
-                } else { var x = parseInt(a.weight.split(' - ')[0]).toString() }
+                    x = ((parseInt(a.weight.split(' - ')[0]) + parseInt(a.weight.split(' - ')[1])) / 2).toString()
+                } else {  x = parseInt(a.weight.split(' - ')[0]).toString() }
                 if(b.weight.split(' - ').length === 2){
-                   var y = ((parseInt(b.weight.split(' - ')[0]) + parseInt(b.weight.split(' - ')[1])) / 2).toString()
-                } else { var y = parseInt(b.weight.split(' - ')[0]).toString() }
+                    y = ((parseInt(b.weight.split(' - ')[0]) + parseInt(b.weight.split(' - ')[1])) / 2).toString()
+                } else {  y = parseInt(b.weight.split(' - ')[0]).toString() }
                 return x - y
               })
           };
       case WEIGHT_DESC:
           return {
               ...state,
-              breeds: state.breeds.sort((a, b) => { 
+              breeds: state.breeds.sort((a, b) => {
+                  var x, y
                 if(a.weight.split(' - ').length === 2) {
-                   var x = ((parseInt(a.weight.split(' - ')[0]) + parseInt(a.weight.split(' - ')[1])) / 2).toString()
-                } else { var x = parseInt(a.weight.split(' - ')[0]).toString() }
+                    x = ((parseInt(a.weight.split(' - ')[0]) + parseInt(a.weight.split(' - ')[1])) / 2).toString()
+                } else {  x = parseInt(a.weight.split(' - ')[0]).toString() }
                 if(b.weight.split(' - ').length === 2){
-                   var y = ((parseInt(b.weight.split(' - ')[0]) + parseInt(b.weight.split(' - ')[1])) / 2).toString()
-                } else { var y = parseInt(b.weight.split(' - ')[0]).toString() }
+                    y = ((parseInt(b.weight.split(' - ')[0]) + parseInt(b.weight.split(' - ')[1])) / 2).toString()
+                } else {  y = parseInt(b.weight.split(' - ')[0]).toString() }
                 return y - x
               })
           };
