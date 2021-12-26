@@ -1,5 +1,4 @@
 import React from "react";
-// import { weightDESC } from "../../actions";
 
 function SearchBar({ weightAlpha }) {
   function handleChange(e) {
@@ -25,9 +24,19 @@ function SearchBar({ weightAlpha }) {
         </select>
       </label>
       &nbsp;
-      <button type="submit">Temperaments</button>
+      <button disabled type="submit">
+        Temperaments
+      </button>
       &nbsp;
-      <button type="submit">API or DB or All</button>
+      <button disabled type="submit">
+        API or DB or All
+      </button>
+      &nbsp;
+      <input
+        disabled
+        type="text"
+        placeholder="Breed search under construction"
+      />
       {/* https://www.w3schools.com/howto/howto_css_switch.asp */}
     </>
   );

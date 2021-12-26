@@ -28,9 +28,9 @@ function Cards() {
   return (
     <>
       <div>
-        <button onClick={prevPage}>Prev</button>
-        <span> Page {currentPage / 8 + 1} </span>
-        <button onClick={nextPage}>Next</button>
+        <button onClick={prevPage}>◄</button>
+        <button> Page {currentPage / 8 + 1} </button>
+        <button onClick={nextPage}>►</button>
       </div>
 
       {breeds.map((e) => (
