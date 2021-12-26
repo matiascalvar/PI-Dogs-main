@@ -1,12 +1,19 @@
 import React from "react";
-import { getBreeds } from "../../actions";
+import { useSelector } from "react-redux";
 
-function SearchBar({ weightAlpha, search }) {
+function SearchBar({ weightAlpha, search, filterTemp }) {
+  const temperaments = useSelector((state) => state.temperaments);
+  // console.log(temperaments);
+
   function handleChange(e) {
     weightAlpha(e.target.value);
   }
   function handleChangeSearch(e) {
     search(e.target.value);
+  }
+  function handleChangeFilterTemp(e) {
+    filterTemp(e.target.value);
+    console.log(e.target.value);
   }
 
   return (
@@ -28,9 +35,14 @@ function SearchBar({ weightAlpha, search }) {
         </select>
       </label>
       &nbsp;
-      <button disabled type="submit">
-        Temperaments
-      </button>
+      <select name="temperaments" id="temps" onChange={handleChangeFilterTemp}>
+        <option value="reset">--Choose a Temperament--</option>
+        {temperaments.map((e) => (
+          <option value={e.name} key={e.id}>
+            {e.name}
+          </option>
+        ))}
+      </select>
       &nbsp;
       <button disabled type="submit">
         API or DB or All
