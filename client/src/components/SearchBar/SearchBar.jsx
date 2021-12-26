@@ -1,8 +1,12 @@
 import React from "react";
+import { getBreeds } from "../../actions";
 
-function SearchBar({ weightAlpha }) {
+function SearchBar({ weightAlpha, search }) {
   function handleChange(e) {
     weightAlpha(e.target.value);
+  }
+  function handleChangeSearch(e) {
+    search(e.target.value);
   }
 
   return (
@@ -33,9 +37,9 @@ function SearchBar({ weightAlpha }) {
       </button>
       &nbsp;
       <input
-        disabled
+        onChange={handleChangeSearch}
         type="text"
-        placeholder="Breed search under construction"
+        placeholder="Search a breed!"
       />
       {/* https://www.w3schools.com/howto/howto_css_switch.asp */}
     </>

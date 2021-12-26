@@ -5,6 +5,7 @@ export const ORDER_ZA = 'ORDER_ZA';
 export const ORDER_AZ = 'ORDER_AZ';
 export const WEIGHT_ASC = 'WEIGHT_ASC';
 export const WEIGHT_DESC = 'WEIGHT_DESC';
+export const SEARCH_BREED = 'SEARCH_BREED';
 
 export const getBreeds = () => async dispatch => {
     const response = await axios.get("http://localhost:3001/dogs")
@@ -20,7 +21,9 @@ export function weightAndAlpha(option) {
   return { type: option}
 }
 
-
+export function searchBreed(option) {
+  return { type: 'SEARCH_BREED', payload: option}
+}
 
 
 

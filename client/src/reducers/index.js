@@ -1,4 +1,4 @@
-import { GET_BREEDS, GET_TEMPERAMENT, ORDER_ZA, ORDER_AZ, WEIGHT_ASC, WEIGHT_DESC } from "../actions";
+import { GET_BREEDS, GET_TEMPERAMENT, ORDER_ZA, ORDER_AZ, WEIGHT_ASC, WEIGHT_DESC, SEARCH_BREED } from "../actions";
 
 var initialState = {
     breeds: [],
@@ -58,6 +58,11 @@ export default function reducer (state = initialState, action) {
                 return y - x
               })
           };
+      case SEARCH_BREED:
+          return {
+              ...state,
+              breeds: action.payload ? state.breeds.filter((breed) => breed.name.includes(action.payload)) : state.breeds
+          }
 
       default:
           return { ...state };
