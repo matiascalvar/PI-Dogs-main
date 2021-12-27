@@ -1,16 +1,16 @@
 import { Link, useParams } from "react-router-dom";
-import { searchBreedDetail } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
+import { searchBreedDetail } from "../../actions";
 
 function Detail() {
+  const dispatch = useDispatch();
   let { id } = useParams();
 
-  const dispatch = useDispatch();
-  const breedDetail = useSelector((state) => state.breedDetail);
   useEffect(() => {
     dispatch(searchBreedDetail(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
+  const breedDetail = useSelector((state) => state.breedDetail);
   return (
     <>
       <h1>Detail Component</h1>
