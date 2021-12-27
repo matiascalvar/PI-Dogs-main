@@ -1,0 +1,32 @@
+import { Link, useParams } from "react-router-dom";
+import { searchBreedDetail } from "../../actions";
+import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from "react";
+
+function Detail() {
+  let { id } = useParams();
+
+  const dispatch = useDispatch();
+  const breedDetail = useSelector((state) => state.breedDetail);
+  useEffect(() => {
+    dispatch(searchBreedDetail(id));
+  }, [dispatch]);
+  return (
+    <>
+      <h1>Detail Component</h1>
+      <Link to="/home">Return to home</Link>
+      <h3>Name: {breedDetail.name}</h3>
+      <img
+        src={`${breedDetail.image}`}
+        alt={`${breedDetail.name}`}
+        width="700"
+      />
+      <p>Temperament: {breedDetail.temperament}</p>
+      <p>Weight: {breedDetail.weight} kg</p>
+      <p>Height: {breedDetail.height} cm</p>
+      <p>Life Span: {breedDetail.life_span}</p>
+    </>
+  );
+}
+// Podria crear un action que llame a mi api en dogs/:idRaza y le pase el id
+export default Detail;

@@ -35,6 +35,10 @@ export function filterOrigin(option) {
   return { type: 'FILTER_BY_ORIGIN', payload: option }
 }
 
+export const searchBreedDetail = (id) => async dispatch => {
+    const response = await axios.get(`http://localhost:3001/dogs/${id}`)
+    dispatch({type: 'GET_DETAIL', payload: response.data})
+}
 
 
 

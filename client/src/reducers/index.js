@@ -2,7 +2,8 @@ import { GET_BREEDS, GET_TEMPERAMENT, ORDER_ZA, ORDER_AZ, WEIGHT_ASC, WEIGHT_DES
 
 var initialState = {
     breeds: [],
-    temperaments: []
+    temperaments: [],
+    breedDetail: {} // Ojo puede generar problemas
 }
 
 export default function reducer (state = initialState, action) {
@@ -72,6 +73,11 @@ export default function reducer (state = initialState, action) {
               ...state,
               breeds: state.breeds.filter((breed) => breed.origin === action.payload)
           };
+      case 'GET_DETAIL':
+          return {
+              ...state,
+              breedDetail: action.payload
+          }
       default:
         return { ...state };
     };

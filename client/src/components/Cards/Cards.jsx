@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../Card/Card";
 import { getBreeds } from "../../actions/index";
+import { Link } from "react-router-dom";
 
 function Cards() {
   const dispatch = useDispatch();
@@ -19,8 +20,7 @@ function Cards() {
       ? setCurrentPage(currentPage - 8)
       : setCurrentPage(currentPage);
   };
-  // useEffect se ejecuta cuando se termina de renderizar el componente
-  // useDispatch despacha una action al store
+
   useEffect(() => {
     dispatch(getBreeds());
   }, [dispatch]);
@@ -34,13 +34,15 @@ function Cards() {
       </div>
 
       {breeds.map((e) => (
-        <Card
-          name={e.name}
-          weight={e.weight}
-          temperament={e.temperament}
-          image={e.image}
-          key={e.id}
-        />
+        <Link to={`/detail/${e.id}`} key={e.id}>
+          <Card
+            name={e.name}
+            weight={e.weight}
+            temperament={e.temperament}
+            image={e.image}
+            key={e.id}
+          />
+        </Link>
       ))}
     </>
   );
