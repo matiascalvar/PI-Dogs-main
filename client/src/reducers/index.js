@@ -71,10 +71,9 @@ export default function reducer (state = initialState, action) {
           return {
               ...state,
               breeds: state.breeds.filter((breed) => breed.origin === action.payload)
-          }
-
+          };
       default:
-          return { ...state };
+        return { ...state };
     };
 };
 

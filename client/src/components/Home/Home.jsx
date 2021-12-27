@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Nav from "./Nav/Nav.jsx";
-import Cards from "./Cards";
+import Nav from "../Nav/Nav.jsx";
+import Cards from "../Cards/Cards.jsx";
 
 function Home() {
   return (

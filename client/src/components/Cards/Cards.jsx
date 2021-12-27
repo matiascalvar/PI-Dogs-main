@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Card from "./Card";
-import { getBreeds } from "../actions/index";
+import Card from "../Card/Card";
+import { getBreeds } from "../../actions/index";
 
 function Cards() {
   const dispatch = useDispatch();
