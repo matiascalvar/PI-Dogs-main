@@ -2,6 +2,7 @@ import { GET_BREEDS, GET_TEMPERAMENT, ORDER_ZA, ORDER_AZ, WEIGHT_ASC, WEIGHT_DES
 
 var initialState = {
     breeds: [],
+    breedsToFilter: [],
     temperaments: [],
     breedDetail: {} // Ojo puede generar problemas
 }
@@ -11,7 +12,8 @@ export default function reducer (state = initialState, action) {
       case GET_BREEDS:
           return {
               ...state,
-              breeds: action.payload
+              breeds: action.payload,
+              breedsToFilter: action.payload
             //    arr: [...state.arr, action.newItem]
           };
       case GET_TEMPERAMENT:
@@ -23,17 +25,17 @@ export default function reducer (state = initialState, action) {
       case ORDER_ZA:
           return {
               ...state,
-              breeds: state.breeds.sort((a, b) => b.name.localeCompare(a.name))
+              breedsToFilter: state.breeds.sort((a, b) => b.name.localeCompare(a.name))
           };
       case ORDER_AZ:
           return {
               ...state,
-              breeds: state.breeds.sort((a, b) => a.name.localeCompare(b.name))
+              breedsToFilter: state.breeds.sort((a, b) => a.name.localeCompare(b.name))
           };
       case WEIGHT_ASC:
           return {
               ...state,
-              breeds: state.breeds.sort((a, b) => {
+              breedsToFilter: state.breeds.sort((a, b) => {
                   var x, y
                 if(a.weight.split(' - ').length === 2) {
                     x = ((parseInt(a.weight.split(' - ')[0]) + parseInt(a.weight.split(' - ')[1])) / 2).toString()
@@ -47,7 +49,7 @@ export default function reducer (state = initialState, action) {
       case WEIGHT_DESC:
           return {
               ...state,
-              breeds: state.breeds.sort((a, b) => {
+              breedsToFilter: state.breeds.sort((a, b) => {
                   var x, y
                 if(a.weight.split(' - ').length === 2) {
                     x = ((parseInt(a.weight.split(' - ')[0]) + parseInt(a.weight.split(' - ')[1])) / 2).toString()
@@ -61,17 +63,17 @@ export default function reducer (state = initialState, action) {
       case SEARCH_BREED:
           return {
               ...state,
-              breeds: action.payload ? state.breeds.filter((breed) => breed.name.includes(action.payload)) : state.breeds
+              breedsToFilter: state.breeds.filter((breed) => breed.name.includes(action.payload))
           };
       case FILTER_BY_TEMP:
           return {
               ...state,
-              breeds: state.breeds.filter((breed) => (breed.temperament? breed.temperament.includes(action.payload):null))
+              breedsToFilter: action.payload === 'ALL'? state.breeds : state.breeds.filter((breed) => (breed.temperament? breed.temperament.includes(action.payload):null))
           };
       case FILTER_BY_ORIGIN:
           return {
               ...state,
-              breeds: state.breeds.filter((breed) => breed.origin === action.payload)
+              breedsToFilter: action.payload === 'ALL'? state.breeds : state.breeds.filter((breed) => breed.origin === action.payload)
           };
       case 'GET_DETAIL':
           return {

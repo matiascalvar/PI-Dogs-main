@@ -22,10 +22,10 @@ function Nav() {
   };
 
   const filterTempAction = function (option) {
-    option === "reset" ? dispatch(getBreeds()) : dispatch(filterTemp(option));
+    dispatch(filterTemp(option));
   };
   const filterOrigins = async function (option) {
-    option === "ALL" ? dispatch(getBreeds()) : dispatch(filterOrigin(option));
+    dispatch(filterOrigin(option));
   };
   // Creo una function que reciba el input desde abajo y lo pase al action creator.
   // El accion creator pasa esa info como payload y el reducer hace el filtro en breeds

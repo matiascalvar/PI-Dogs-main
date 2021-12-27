@@ -7,11 +7,12 @@ function Form() {
   };
   return (
     <>
-      <Link to="/form">
+      <Link to="/home">
         <p>Return to home</p>
       </Link>
       <form action="" onSubmit={handleSubmit}>
         <input type="text" placeholder="Name" /> <br />
+        <input type="url" name="image" id="image" placeholder="Image" /> <br />
         <input type="number" placeholder="Min Height" />
         <input type="number" placeholder="Max Height" /> <br />
         <input type="text" placeholder="Min Weight" />
@@ -25,13 +26,6 @@ function Form() {
             </option>
           ))}
         </select>
-        <br />
-        {temperaments.map((e) => (
-          <span>
-            <input type="checkbox" name={e.name} id={e.id} />
-            <label for={e.name}>{e.name}</label>
-          </span>
-        ))}{" "}
         <br />
         <button type="submit">Create new breed</button>
       </form>
@@ -48,3 +42,4 @@ export default Form;
 //      Años de vida
 //  Posibilidad de seleccionar/agregar uno o más temperamentos
 //  Botón/Opción para crear una nueva raza de perro
+// Para los temperamentos. Se puede ir pusheando desde el select a un html y luego de ahi enviarlos por form

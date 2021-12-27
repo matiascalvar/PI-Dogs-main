@@ -9,7 +9,7 @@ function Cards() {
 
   const [currentPage, setCurrentPage] = useState(0);
   const breeds = useSelector((state) =>
-    state.breeds.slice(currentPage, currentPage + 8)
+    state.breedsToFilter.slice(currentPage, currentPage + 8)
   );
 
   const nextPag = () => {

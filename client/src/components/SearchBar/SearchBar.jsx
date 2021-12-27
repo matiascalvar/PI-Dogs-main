@@ -38,7 +38,7 @@ function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
       </label>
       &nbsp;
       <select name="temperaments" id="temps" onChange={handleChangeFilterTemp}>
-        <option value="reset">All Temperaments</option>
+        <option value="ALL">All Temperaments</option>
         {temperaments.map((e) => (
           <option value={e.name} key={e.id}>
             {e.name}
