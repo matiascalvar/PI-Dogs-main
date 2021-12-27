@@ -73,8 +73,8 @@ export default function reducer (state = initialState, action) {
       case FILTER_BY_ORIGIN:
           return {
               ...state,
-              breedsToFilter: action.payload === 'ALL'? state.breeds : state.breeds.filter((breed) => breed.origin === action.payload)
-          };
+              breedsToFilter: action.payload === 'ALL'? state.breeds : state.breedsToFilter.filter((breed) => breed.origin === action.payload)
+          };    // Cada puedo combinar TEMP y ORIGIN PASANDO POR ALL
       case 'GET_DETAIL':
           return {
               ...state,
