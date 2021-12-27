@@ -11,10 +11,10 @@ function Cards() {
     state.breeds.slice(currentPage, currentPage + 8)
   );
 
-  const nextPage = () => {
-    setCurrentPage(currentPage + 8);
+  const nextPag = () => {
+    if (breeds.length >= 8) setCurrentPage(currentPage + 8);
   };
-  const prevPage = () => {
+  const prevPag = () => {
     currentPage > 0
       ? setCurrentPage(currentPage - 8)
       : setCurrentPage(currentPage);
@@ -28,9 +28,9 @@ function Cards() {
   return (
     <>
       <div>
-        <button onClick={prevPage}>◄</button>
+        <button onClick={prevPag}>◄</button>
         <button> Page {currentPage / 8 + 1} </button>
-        <button onClick={nextPage}>►</button>
+        <button onClick={nextPag}>►</button>
       </div>
 
       {breeds.map((e) => (

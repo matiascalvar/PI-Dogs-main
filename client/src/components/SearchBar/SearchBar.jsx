@@ -1,9 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-function SearchBar({ weightAlpha, search, filterTemp }) {
+function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
   const temperaments = useSelector((state) => state.temperaments);
-  // console.log(temperaments);
 
   function handleChange(e) {
     weightAlpha(e.target.value);
@@ -13,12 +12,14 @@ function SearchBar({ weightAlpha, search, filterTemp }) {
   }
   function handleChangeFilterTemp(e) {
     filterTemp(e.target.value);
-    console.log(e.target.value);
+  }
+  function handleChangeOrigin(e) {
+    filterOrigin(e.target.value);
   }
 
   return (
     <>
-      <label htmlFor="">
+      <label htmlFor="abcorder">
         <span> Alphabetical Order: </span>
         <select name="abcorder" id="abcorder" onChange={handleChange}>
           <option value="ORDER_AZ">A - Z</option>
@@ -26,7 +27,7 @@ function SearchBar({ weightAlpha, search, filterTemp }) {
         </select>
       </label>
       &nbsp;
-      <label htmlFor="">
+      <label htmlFor="weight">
         <span> Weight: </span>
         <select name="weight" id="weight" onChange={handleChange}>
           {/* <option value="">Weight Sort</option> */}
@@ -36,7 +37,7 @@ function SearchBar({ weightAlpha, search, filterTemp }) {
       </label>
       &nbsp;
       <select name="temperaments" id="temps" onChange={handleChangeFilterTemp}>
-        <option value="reset">--Choose a Temperament--</option>
+        <option value="reset">All Temperaments</option>
         {temperaments.map((e) => (
           <option value={e.name} key={e.id}>
             {e.name}
@@ -44,9 +45,14 @@ function SearchBar({ weightAlpha, search, filterTemp }) {
         ))}
       </select>
       &nbsp;
-      <button disabled type="submit">
-        API or DB or All
-      </button>
+      <label htmlFor="origin">
+        <span>Origin: </span>
+        <select name="origin" id="origin" onChange={handleChangeOrigin}>
+          <option value="ALL">ALL</option>
+          <option value="db">DB</option>
+          <option value="api">API</option>
+        </select>
+      </label>
       &nbsp;
       <input
         onChange={handleChangeSearch}

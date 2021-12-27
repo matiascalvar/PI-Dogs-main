@@ -1,9 +1,8 @@
-import { GET_BREEDS, GET_TEMPERAMENT, ORDER_ZA, ORDER_AZ, WEIGHT_ASC, WEIGHT_DESC, SEARCH_BREED, FILTER_BY_TEMP } from "../actions";
+import { GET_BREEDS, GET_TEMPERAMENT, ORDER_ZA, ORDER_AZ, WEIGHT_ASC, WEIGHT_DESC, SEARCH_BREED, FILTER_BY_TEMP, FILTER_BY_ORIGIN } from "../actions";
 
 var initialState = {
     breeds: [],
-    temperaments: [],
-    breedSearched: []
+    temperaments: []
 }
 
 export default function reducer (state = initialState, action) {
@@ -68,6 +67,11 @@ export default function reducer (state = initialState, action) {
               ...state,
               breeds: state.breeds.filter((breed) => (breed.temperament? breed.temperament.includes(action.payload):null))
           };
+      case FILTER_BY_ORIGIN:
+          return {
+              ...state,
+              breeds: state.breeds.filter((breed) => breed.origin === action.payload)
+          }
 
       default:
           return { ...state };

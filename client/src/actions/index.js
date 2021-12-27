@@ -7,6 +7,7 @@ export const WEIGHT_ASC = 'WEIGHT_ASC';
 export const WEIGHT_DESC = 'WEIGHT_DESC';
 export const SEARCH_BREED = 'SEARCH_BREED';
 export const FILTER_BY_TEMP = 'FILTER_BY_TEMP';
+export const FILTER_BY_ORIGIN = 'FILTER_BY_ORIGIN';
 
 export const getBreeds = () => async dispatch => {
     const response = await axios.get("http://localhost:3001/dogs")
@@ -30,7 +31,9 @@ export function filterTemp(option) {
   return { type: 'FILTER_BY_TEMP', payload: option}
 }
 
-
+export function filterOrigin(option) {
+  return { type: 'FILTER_BY_ORIGIN', payload: option }
+}
 
 
 
