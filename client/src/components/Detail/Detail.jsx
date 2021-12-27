@@ -13,7 +13,7 @@ function Detail() {
   const breedDetail = useSelector((state) => state.breedDetail);
   return (
     <>
-      <h1>Detail Component</h1>
+      <h1>Breed Detail</h1>
       <Link to="/home">Return to home</Link>
       <h3>Name: {breedDetail.name}</h3>
       <img
@@ -28,5 +28,5 @@ function Detail() {
     </>
   );
 }
-// Podria crear un action que llame a mi api en dogs/:idRaza y le pase el id
+
 export default Detail;

@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
   const temperaments = useSelector((state) => state.temperaments);
@@ -57,8 +58,12 @@ function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
       <input
         onChange={handleChangeSearch}
         type="text"
-        placeholder="Search a breed!"
+        placeholder="Search a breed!            🔎"
       />
+      &nbsp;
+      <Link to="/form">
+        <button>Create new breed</button>
+      </Link>
       {/* https://www.w3schools.com/howto/howto_css_switch.asp */}
     </>
   );
