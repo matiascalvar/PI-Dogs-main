@@ -59,7 +59,7 @@ export default function Form() {
     maxWeight: "",
     minLifeSpan: "",
     maxLifeSpan: "",
-    temperaments,
+    temperaments: [],
   });
 
   const [errors, setErrors] = useState({});
@@ -102,18 +102,43 @@ export default function Form() {
     else if (!namePattern.test(input.name)) {
       errors.name = "Only lowercase letters allowed";
     }
+    // Height
     if (!input.minHeight) errors.minHeight = "minHeight can't be blank";
     else if (input.minHeight <= 0) errors.minHeight = "Must be above zero";
     if (!input.maxHeight) errors.maxHeight = "maxHeight can't be blank";
     else if (input.maxHeight <= 0) errors.maxHeight = "Must be above zero";
-
+    // Weight
+    if (!input.minWeight) errors.minWeight = "minWeight can't be blank";
+    else if (input.minWeight <= 0) errors.minWeight = "Must be above zero";
+    if (!input.maxWeight) errors.maxWeight = "maxWeight can't be blank";
+    else if (input.maxWeight <= 0) errors.maxWeight = "Must be above zero";
+    // Life Span
+    if (!input.minLifeSpan) errors.minLifeSpan = "minLifeSpan can't be blank";
+    else if (input.minLifeSpan <= 0) errors.minLifeSpan = "Must be above zero";
+    if (!input.maxLifeSpan) errors.maxLifeSpan = "maxLifeSpan can't be blank";
+    else if (input.maxLifeSpan <= 0) errors.maxLifeSpan = "Must be above zero";
     // if errors no tiene elementos disabled = false, else true
     return errors;
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    // ACA EL DISPATCH
+    setInput({
+      name: "",
+      minHeight: "",
+      maxHeight: "",
+      minWeight: "",
+      maxWeight: "",
+      minLifeSpan: "",
+      maxLifeSpan: "",
+      temperaments: [],
+    });
   }
   /////////////////////////////////////////////////////////////////////////////
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           onChange={handleInputChange}
           name="name"
@@ -163,7 +188,7 @@ export default function Form() {
           placeholder="maxLifeSpan"
         />
         {errors.maxLifeSpan && <p>{errors.maxLifeSpan}</p>}
-        {/*  */}
+        {/* Temperaments Select  */}
         <select onChange={handleTemps} name="temperaments" id="temperaments">
           <option value="">-Choose one or more-</option>
           {temperaments.map((e) => (
@@ -173,63 +198,15 @@ export default function Form() {
           ))}
         </select>
 
-        {/* submit */}
-        <input type="submit" value="Submit" />
+        <div>
+          <ul>
+            {input.temperaments.length
+              ? input.temperaments.map((e, i) => <li key={i}>{e}</li>)
+              : null}
+          </ul>
+        </div>
+        <button>Create new breed!</button>
       </form>
-      <div>
-        {input.temperaments.map((e) => (
-          <p>{e}</p>
-        ))}
-      </div>
     </>
   );
 }
-
-// function handleChange(e) {
-//   const { name, value } = e.target;
-//   let errors = this.state.errors;
-
-//   switch (name) {
-//     case "name":
-//       errors.name =
-//         value.length < 4 ? "Name must have four characters at least" : "";
-//       break;
-//     case "minHeight":
-//       errors.minHeight =
-//         isNaN(value) || value < 0
-//           ? "Min Height must be a number and greater than zero"
-//           : "";
-//       break;
-//     case "maxHeight":
-//       errors.maxHeight =
-//         !isNaN(value) || (value > 0 && value < 99)
-//           ? ""
-//           : "Max Height must be a number, more than zero and less than 99";
-//       break;
-//     case "minWeight":
-//       errors.minWeight =
-//         isNaN(value) || value < 0
-//           ? "Min Weight must be a number and greater than zero"
-//           : "";
-//       break;
-//     case "maxWeight":
-//       errors.maxWeight =
-//         !isNaN(value) || (value > 0 && value < 99)
-//           ? ""
-//           : "Max Weight must be a number, more than zero and less than 99";
-//       break;
-//     case "lifeSpan":
-//       var lifeSpanPattern = /[0-9]+ - [0-9]+/i; // Expresion Regular para validar Emails.
-//       errors.lifeSpan = lifeSpanPattern.test(value)
-//         ? ""
-//         : "Life Span should be two numbers separated by a slash -";
-//       break;
-//     default:
-//       break;
-//   }
-//   this.setState({
-//     [name]: value,
-//     errors,
-//   });
-//   this.validateForm(this.state.errors);
-// }
