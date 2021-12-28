@@ -57,50 +57,131 @@ export default function Form() {
     maxHeight: "",
     minWeight: "",
     maxWeight: "",
-    lifeSpan: "",
-    temperaments: "",
+    minLifeSpan: "",
+    maxLifeSpan: "",
+    temperaments,
   });
 
   const [errors, setErrors] = useState({});
   // const [disable, setdisable] = useState(true);
 
+  function handleTemps(e) {
+    let concat = input[e.target.name].concat(e.target.value);
+    setInput({
+      ...input,
+      [e.target.name]: concat,
+    });
+    console.log(input);
+  }
+  // function remove(e) {
+  //   let concat = input[e.target.name].filter((element) => element !=);
+  //       setInput({
+  //         ...input,
+  //         [e.target.name]: concat,
+  //       });
+  // }
+  function handleInputChange(e) {
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value,
+      // height : value en input con name height
+    });
+    console.log(input);
+    setErrors(
+      validation({
+        ...input,
+        [e.target.name]: e.target.value,
+      })
+    );
+  }
+
+  function validation(input) {
+    var errors = {};
+    var namePattern = /^[a-z ]+$/g;
+    if (!input.name) errors.name = "Name can't be blank";
+    else if (!namePattern.test(input.name)) {
+      errors.name = "Only lowercase letters allowed";
+    }
+    if (!input.minHeight) errors.minHeight = "minHeight can't be blank";
+    else if (input.minHeight <= 0) errors.minHeight = "Must be above zero";
+    if (!input.maxHeight) errors.maxHeight = "maxHeight can't be blank";
+    else if (input.maxHeight <= 0) errors.maxHeight = "Must be above zero";
+
+    // if errors no tiene elementos disabled = false, else true
+    return errors;
+  }
+  /////////////////////////////////////////////////////////////////////////////
   return (
-    <form>
-      <input name="name" type="name" value="" placeholder="Name" />
-      {/* {!this.state.errors.name ? null : <div>{this.state.errors.name}</div>} */}
-      <input name="minHeight" type="name" value="" placeholder="minHeight" />
-      {/* {!this.state.errors.minHeight ? null : (
-        <div>{this.state.errors.minHeight}</div>
-      )} */}
-      <input name="maxHeight" type="name" value="" placeholder="maxHeight" />
-      {/* {!this.state.errors.maxHeight ? null : (
-        <div>{this.state.errors.maxHeight}</div>
-      )} */}
-      <input name="minWeight" type="name" value="" placeholder="minWeight" />
-      {/* {!this.state.errors.minWeight ? null : (
-        <div>{this.state.errors.minWeight}</div>
-      )} */}
-      <input name="maxWeight" type="name" value="" placeholder="maxWeight" />
-      {/* {!this.state.errors.maxWeight ? null : (
-        <div>{this.state.errors.maxWeight}</div>
-      )} */}
-      <input name="lifeSpan" type="name" value="" placeholder="lifeSpan" />
-      {/* {!this.state.errors.lifeSpan ? null : (
-        <div>{this.state.errors.lifeSpan}</div>
-      )} */}
+    <>
+      <form>
+        <input
+          onChange={handleInputChange}
+          name="name"
+          type="text"
+          placeholder="Name"
+        />
+        {errors.name && <p>{errors.name}</p>}
+        <input
+          onChange={handleInputChange}
+          name="minHeight"
+          type="number"
+          placeholder="minHeight"
+        />
+        {errors.minHeight && <p>{errors.minHeight}</p>}
+        <input
+          onChange={handleInputChange}
+          name="maxHeight"
+          type="number"
+          placeholder="maxHeight"
+        />
+        {errors.maxHeight && <p>{errors.maxHeight}</p>}
+        <input
+          onChange={handleInputChange}
+          name="minWeight"
+          type="number"
+          placeholder="minWeight"
+        />
+        {errors.minWeight && <p>{errors.minWeight}</p>}
+        <input
+          onChange={handleInputChange}
+          name="maxWeight"
+          type="number"
+          placeholder="maxWeight"
+        />
+        {errors.maxWeight && <p>{errors.maxWeight}</p>}
+        <input
+          onChange={handleInputChange}
+          name="minLifeSpan"
+          type="number"
+          placeholder="minLifeSpan"
+        />
+        {errors.minLifeSpan && <p>{errors.minLifeSpan}</p>}
+        <input
+          onChange={handleInputChange}
+          name="maxLifeSpan"
+          type="number"
+          placeholder="maxLifeSpan"
+        />
+        {errors.maxLifeSpan && <p>{errors.maxLifeSpan}</p>}
+        {/*  */}
+        <select onChange={handleTemps} name="temperaments" id="temperaments">
+          <option value="">-Choose one or more-</option>
+          {temperaments.map((e) => (
+            <option value={e.name} key={e.id}>
+              {e.name}
+            </option>
+          ))}
+        </select>
 
-      <select name="temperaments" id="temperaments">
-        <option value="A Temperament">-Choose one or more-</option>
-        {temperaments.map((e) => (
-          <option value={e.name} key={e.id}>
-            {e.name}
-          </option>
+        {/* submit */}
+        <input type="submit" value="Submit" />
+      </form>
+      <div>
+        {input.temperaments.map((e) => (
+          <p>{e}</p>
         ))}
-      </select>
-
-      {/* submit */}
-      <input type="submit" value="Submit" />
-    </form>
+      </div>
+    </>
   );
 }
 
