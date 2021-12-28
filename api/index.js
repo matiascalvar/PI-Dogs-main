@@ -61,7 +61,8 @@ conn.sync({force : true}).then(() => {
         // , { include: "temperaments" });
         
         let addingTemp = await callejero2.addTemperaments("3")
-        // console.log(Dog.prototype)
+        let addingTemp2 = await callejero2.addTemperaments("4")
+        console.log(addingTemp)
     })
     .catch((e) => {
         console.log(e)

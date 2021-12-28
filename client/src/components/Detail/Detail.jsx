@@ -11,22 +11,12 @@ function Detail() {
     dispatch(searchBreedDetail(id));
   }, [dispatch, id]);
   const breedDetail = useSelector((state) => state.breedDetail);
-  return (
-    <>
-      <h1>Breed Detail</h1>
-      <Link to="/home">Return to home</Link>
-      <h3>Name: {breedDetail.name}</h3>
-      <img
-        src={`${breedDetail.image}`}
-        alt={`${breedDetail.name}`}
-        width="700"
-      />
-      <p>Temperament: {breedDetail.temperament}</p>
-      <p>Weight: {breedDetail.weight} kg</p>
-      <p>Height: {breedDetail.height} cm</p>
-      <p>Life Span: {breedDetail.life_span}</p>
-    </>
-  );
+
+  if (false) {
+    return <h1> CARGANDO </h1>;
+  } else {
+    <h1> NO CARGANDO</h1>;
+  }
 }
 
 export default Detail;
