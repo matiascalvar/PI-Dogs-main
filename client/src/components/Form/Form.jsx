@@ -50,7 +50,7 @@ import { useDispatch, useSelector } from "react-redux";
 export default function Form() {
   const temperaments = useSelector((state) => state.temperaments);
   const dispatch = useDispatch();
-
+  let disabled = "disabled";
   const [input, setInput] = useState({
     name: "",
     minHeight: "",
@@ -94,7 +94,7 @@ export default function Form() {
       })
     );
   }
-
+  console.log(errors);
   function validation(input) {
     var errors = {};
     var namePattern = /^[a-z ]+$/g;
@@ -139,55 +139,69 @@ export default function Form() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input
-          onChange={handleInputChange}
-          name="name"
-          type="text"
-          placeholder="Name"
-        />
-        {errors.name && <p>{errors.name}</p>}
-        <input
-          onChange={handleInputChange}
-          name="minHeight"
-          type="number"
-          placeholder="minHeight"
-        />
-        {errors.minHeight && <p>{errors.minHeight}</p>}
-        <input
-          onChange={handleInputChange}
-          name="maxHeight"
-          type="number"
-          placeholder="maxHeight"
-        />
-        {errors.maxHeight && <p>{errors.maxHeight}</p>}
-        <input
-          onChange={handleInputChange}
-          name="minWeight"
-          type="number"
-          placeholder="minWeight"
-        />
-        {errors.minWeight && <p>{errors.minWeight}</p>}
-        <input
-          onChange={handleInputChange}
-          name="maxWeight"
-          type="number"
-          placeholder="maxWeight"
-        />
-        {errors.maxWeight && <p>{errors.maxWeight}</p>}
-        <input
-          onChange={handleInputChange}
-          name="minLifeSpan"
-          type="number"
-          placeholder="minLifeSpan"
-        />
-        {errors.minLifeSpan && <p>{errors.minLifeSpan}</p>}
-        <input
-          onChange={handleInputChange}
-          name="maxLifeSpan"
-          type="number"
-          placeholder="maxLifeSpan"
-        />
-        {errors.maxLifeSpan && <p>{errors.maxLifeSpan}</p>}
+        <div>
+          <input
+            onChange={handleInputChange}
+            name="name"
+            type="text"
+            placeholder="Name"
+          />
+          {errors.name && <p>{errors.name}</p>}
+        </div>
+        <div>
+          <input
+            onChange={handleInputChange}
+            name="minHeight"
+            type="number"
+            placeholder="minHeight"
+          />
+          {errors.minHeight && <p>{errors.minHeight}</p>}
+        </div>
+        <div>
+          <input
+            onChange={handleInputChange}
+            name="maxHeight"
+            type="number"
+            placeholder="maxHeight"
+          />
+          {errors.maxHeight && <p>{errors.maxHeight}</p>}
+        </div>
+        <div>
+          <input
+            onChange={handleInputChange}
+            name="minWeight"
+            type="number"
+            placeholder="minWeight"
+          />
+          {errors.minWeight && <p>{errors.minWeight}</p>}
+        </div>
+        <div>
+          <input
+            onChange={handleInputChange}
+            name="maxWeight"
+            type="number"
+            placeholder="maxWeight"
+          />
+          {errors.maxWeight && <p>{errors.maxWeight}</p>}
+        </div>
+        <div>
+          <input
+            onChange={handleInputChange}
+            name="minLifeSpan"
+            type="number"
+            placeholder="minLifeSpan"
+          />
+          {errors.minLifeSpan && <p>{errors.minLifeSpan}</p>}
+        </div>
+        <div>
+          <input
+            onChange={handleInputChange}
+            name="maxLifeSpan"
+            type="number"
+            placeholder="maxLifeSpan"
+          />
+          {errors.maxLifeSpan && <p>{errors.maxLifeSpan}</p>}
+        </div>
         {/* Temperaments Select  */}
         <select onChange={handleTemps} name="temperaments" id="temperaments">
           <option value="">-Choose one or more-</option>
@@ -205,7 +219,9 @@ export default function Form() {
               : null}
           </ul>
         </div>
-        <button>Create new breed!</button>
+        <button disabled={Object.keys(errors).length === 0 ? "" : true}>
+          Create new breed!
+        </button>
       </form>
     </>
   );
