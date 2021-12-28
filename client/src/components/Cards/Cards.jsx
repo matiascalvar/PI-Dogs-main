@@ -13,7 +13,10 @@ function Cards() {
   );
 
   const nextPag = () => {
-    if (breeds.length >= 8) setCurrentPage(currentPage + 8);
+    if (breeds.length >= 8) {
+      setCurrentPage(currentPage + 8);
+      // window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
   const prevPag = () => {
     currentPage > 0
@@ -23,29 +26,33 @@ function Cards() {
 
   useEffect(() => {
     dispatch(getBreeds());
-  }, [dispatch]);
+  });
 
-  return (
-    <>
-      <div>
-        <button onClick={prevPag}>◄</button>
-        <button> Page {currentPage / 8 + 1} </button>
-        <button onClick={nextPag}>►</button>
-      </div>
+  if (breeds.length) {
+    return (
+      <>
+        <div>
+          <button onClick={prevPag}>◄</button>
+          <button> Page {currentPage / 8 + 1} </button>
+          <button onClick={nextPag}>►</button>
+        </div>
 
-      {breeds.map((e) => (
-        <Link to={`/detail/${e.id}`} key={e.id}>
-          <Card
-            name={e.name}
-            weight={e.weight}
-            temperament={e.temperament}
-            image={e.image}
-            key={e.id}
-          />
-        </Link>
-      ))}
-    </>
-  );
+        {breeds.map((e) => (
+          <Link to={`/detail/${e.id}`} key={e.id}>
+            <Card
+              name={e.name}
+              weight={e.weight}
+              temperament={e.temperament}
+              image={e.image}
+              key={e.id}
+            />
+          </Link>
+        ))}
+      </>
+    );
+  } else {
+    return <h1>CARGANDO</h1>;
+  }
 }
 
 // const mapStateToProps = (state) => ({ breeds: state.breeds });

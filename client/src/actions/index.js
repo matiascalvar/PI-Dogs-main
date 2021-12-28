@@ -40,19 +40,18 @@ export const searchBreedDetail = (id) => async dispatch => {
     dispatch({type: 'GET_DETAIL', payload: response.data})
 }
 
+export function addBreed(breed) {
+  return async function (dispatch) {
+    console.log("inside addBreed try")
+    const response = await axios.post(
+      "http://localhost:3001/dog",
+      breed
+    );
+    dispatch({ type: "ADD_BREED", payload: response });
+  };
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+export const clearDetail = () => ({type: 'CLEAR_DETAIL'})
 
 
 // export function getBreeds () {

@@ -80,6 +80,15 @@ export default function reducer (state = initialState, action) {
               ...state,
               breedDetail: action.payload
           }
+      case 'CLEAR_DETAIL':
+          return {
+              ...state,
+              breedDetail: {}
+          }
+      case 'ADD_BREED':
+          return {
+              ...state,
+          }
       default:
         return { ...state };
     };

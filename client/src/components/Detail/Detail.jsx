@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
-import { searchBreedDetail } from "../../actions";
+import { clearDetail, searchBreedDetail } from "../../actions";
 
 function Detail() {
   const dispatch = useDispatch();
@@ -9,13 +9,18 @@ function Detail() {
 
   useEffect(() => {
     dispatch(searchBreedDetail(id));
+    dispatch(clearDetail());
   }, [dispatch, id]);
   const breedDetail = useSelector((state) => state.breedDetail);
 
-  if (false) {
-    return <h1> CARGANDO </h1>;
-  } else {
-    <h1> NO CARGANDO</h1>;
+  if (Object.keys(breedDetail).length === 0) return <h1> CARGANDO </h1>;
+  else {
+    return (
+      <>
+        <Link to="/home">Go back to home</Link>
+        <p>{breedDetail.name}</p>
+      </>
+    );
   }
 }
 
