@@ -13,7 +13,7 @@ function Detail() {
   }, [dispatch, id]);
   const breedDetail = useSelector((state) => state.breedDetail);
 
-  if (Object.keys(breedDetail).length === 0) return <h1> CARGANDO </h1>;
+  if (Object.keys(breedDetail).length === 0) return <h2> CARGANDO </h2>;
   else {
     return (
       <>

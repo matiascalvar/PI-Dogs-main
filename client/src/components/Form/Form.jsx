@@ -6,8 +6,8 @@
 //  Posibilidad de seleccionar/agregar uno o más temperamentos
 //  Botón/Opción para crear una nueva raza de perro
 // Para los temperamentos. Se puede ir pusheando desde el select a un html y luego de ahi enviarlos por form
-
-import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addBreed } from "../../actions";
 
@@ -109,6 +109,7 @@ export default function Form() {
   /////////////////////////////////////////////////////////////////////////////
   return (
     <>
+      <Link to="/home">Go back to home</Link>
       <form onSubmit={handleSubmit}>
         <div>
           <input

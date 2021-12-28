@@ -26,7 +26,7 @@ function Cards() {
 
   useEffect(() => {
     dispatch(getBreeds());
-  });
+  }, [dispatch]);
 
   if (breeds.length) {
     return (
@@ -51,7 +51,7 @@ function Cards() {
       </>
     );
   } else {
-    return <h1>CARGANDO</h1>;
+    return <h2>CARGANDO</h2>;
   }
 }
 
