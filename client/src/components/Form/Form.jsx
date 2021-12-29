@@ -1,11 +1,3 @@
-// Un formulario controlado con los siguientes campos
-//      Nombre
-//      Altura (Diferenciar entre altura mínima y máxima)
-//      Peso (Diferenciar entre peso mínimo y máximo)
-//      Años de vida
-//  Posibilidad de seleccionar/agregar uno o más temperamentos
-//  Botón/Opción para crear una nueva raza de perro
-// Para los temperamentos. Se puede ir pusheando desde el select a un html y luego de ahi enviarlos por form
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -190,7 +182,11 @@ export default function Form() {
         <div>
           <ul>
             {input.temperaments.length
-              ? input.temperaments.map((e, i) => <li key={i}>{e}</li>)
+              ? input.temperaments.map((e, i) => (
+                  <li key={i}>
+                    {e} <span>x</span>
+                  </li>
+                ))
               : null}
           </ul>
         </div>
