@@ -36,9 +36,6 @@ function Nav() {
     <>
       <div className={styles.head}>
         <span className={styles.title}>Dogs</span>
-        <Link to="/home">
-          <button className={styles.button}>Back to Home</button>
-        </Link>
       </div>
       <div className={styles.filterorder}>
         <SearchBar

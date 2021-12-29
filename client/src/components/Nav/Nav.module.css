@@ -30,4 +30,9 @@
 
 .filterorder {
   background-color: grey;
+  width: 95vw;
+  margin: auto;
+  margin-top: 10px;
+  height: 3rem;
+  border-radius: 5px;
 }
