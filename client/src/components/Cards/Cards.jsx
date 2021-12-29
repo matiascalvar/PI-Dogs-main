@@ -51,7 +51,7 @@ function Cards() {
       </>
     );
   } else {
-    return <h2>CARGANDO</h2>;
+    return <h2>Loading...</h2>;
   }
 }
 

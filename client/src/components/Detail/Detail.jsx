@@ -13,12 +13,17 @@ function Detail() {
   }, [dispatch, id]);
   const breedDetail = useSelector((state) => state.breedDetail);
 
-  if (Object.keys(breedDetail).length === 0) return <h2> CARGANDO </h2>;
+  if (Object.keys(breedDetail).length === 0) return <h2>Loading...</h2>;
   else {
     return (
       <>
         <Link to="/home">Go back to home</Link>
-        <p>{breedDetail.name}</p>
+        <h3>{breedDetail.name}</h3>
+        <img src={breedDetail.image} alt={breedDetail.name} />
+        <p>Height: {breedDetail.height} cm</p>
+        <p>Weight: {breedDetail.weight} kg</p>
+        <p>Temperaments: {breedDetail.temperament}</p>
+        <p>Life Span: {breedDetail.life_span}</p>
       </>
     );
   }

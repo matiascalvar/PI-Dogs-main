@@ -58,7 +58,7 @@ function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
       <input
         onChange={handleChangeSearch}
         type="text"
-        placeholder="Search a breed!            🔎"
+        placeholder="Search a breed!"
       />
       &nbsp;
       <Link to="/form">
