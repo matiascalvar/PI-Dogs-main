@@ -38,7 +38,7 @@ function Cards() {
         </div>
 
         {breeds.map((e) => (
-          <Link to={`/detail/${e.id}`} key={e.id}>
+          <div key={e.id}>
             <Card
               name={e.name}
               weight={e.weight}
@@ -46,8 +46,16 @@ function Cards() {
               image={e.image}
               key={e.id}
             />
-          </Link>
+            <Link to={`/detail/${e.id}`}>
+              <button>More info</button>
+            </Link>
+          </div>
         ))}
+        <div>
+          <button onClick={prevPag}>◄</button>
+          <button> Page {currentPage / 8 + 1} </button>
+          <button onClick={nextPag}>►</button>
+        </div>
       </>
     );
   } else {

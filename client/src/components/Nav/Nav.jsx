@@ -31,7 +31,6 @@ function Nav() {
   // El accion creator pasa esa info como payload y el reducer hace el filtro en breeds
   return (
     <>
-      <h2>----This is a navbar----</h2>
       <SearchBar
         weightAlpha={weightAndAlphaAction}
         search={search}
