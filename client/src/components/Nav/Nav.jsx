@@ -33,10 +33,11 @@ function Nav() {
   // Creo una function que reciba el input desde abajo y lo pase al action creator.
   // El accion creator pasa esa info como payload y el reducer hace el filtro en breeds
   return (
-    <>
+    <div className={styles.body}>
       <div className={styles.head}>
         <span className={styles.title}>Dogs</span>
       </div>
+
       <div className={styles.filterorder}>
         <SearchBar
           weightAlpha={weightAndAlphaAction}
@@ -45,7 +46,7 @@ function Nav() {
           filterOrigin={filterOrigins}
         />
       </div>
-    </>
+    </div>
   );
 }
 
