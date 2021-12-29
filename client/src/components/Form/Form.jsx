@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addBreed } from "../../actions";
-
+import Header from "../Header/Header.jsx";
 export default function Form() {
   const temperaments = useSelector((state) => state.temperaments);
   const dispatch = useDispatch();
@@ -101,6 +101,7 @@ export default function Form() {
   /////////////////////////////////////////////////////////////////////////////
   return (
     <>
+      <Header />
       <Link to="/home">Go back to home</Link>
       <form onSubmit={handleSubmit}>
         <div>

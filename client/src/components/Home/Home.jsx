@@ -6,7 +6,7 @@ import Footer from "../Footer/Footer.jsx";
 function Home() {
   return (
     <div style={{ backgroundColor: "#fcebdb" }}>
-      <Header />
+      {/* <Header /> */}
       <Nav />
       <Cards />
       <Footer />

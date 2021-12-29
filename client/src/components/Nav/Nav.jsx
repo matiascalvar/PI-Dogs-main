@@ -1,6 +1,9 @@
 import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import { useDispatch } from "react-redux";
+import styles from "./Nav.module.css";
+import { Link } from "react-router-dom";
+
 import {
   weightAndAlpha,
   searchBreed,
@@ -31,12 +34,20 @@ function Nav() {
   // El accion creator pasa esa info como payload y el reducer hace el filtro en breeds
   return (
     <>
-      <SearchBar
-        weightAlpha={weightAndAlphaAction}
-        search={search}
-        filterTemp={filterTempAction}
-        filterOrigin={filterOrigins}
-      />
+      <div className={styles.head}>
+        <span className={styles.title}>Dogs</span>
+        <Link to="/home">
+          <button className={styles.button}>Back to Home</button>
+        </Link>
+      </div>
+      <div className={styles.filterorder}>
+        <SearchBar
+          weightAlpha={weightAndAlphaAction}
+          search={search}
+          filterTemp={filterTempAction}
+          filterOrigin={filterOrigins}
+        />
+      </div>
     </>
   );
 }
