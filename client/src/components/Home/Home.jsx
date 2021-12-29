@@ -1,14 +1,16 @@
-import { Link } from "react-router-dom";
 import Nav from "../Nav/Nav.jsx";
 import Cards from "../Cards/Cards.jsx";
+import Header from "../Header/Header.jsx";
+import Footer from "../Footer/Footer.jsx";
 
 function Home() {
   return (
-    <>
-      <Link to="/">Return to landing page</Link>
+    <div style={{ backgroundColor: "#fcebdb" }}>
+      <Header />
       <Nav />
       <Cards />
-    </>
+      <Footer />
+    </div>
   );
 }
 
