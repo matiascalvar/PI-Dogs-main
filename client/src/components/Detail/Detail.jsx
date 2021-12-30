@@ -18,7 +18,7 @@ function Detail() {
     return (
       <>
         <Link to="/home">Go back to home</Link>
-        <h3>{breedDetail.name}</h3>
+        <h1>{breedDetail.name}</h1>
         <img src={breedDetail.image} alt={breedDetail.name} width="700" />
         <p>Height: {breedDetail.height} cm</p>
         <p>Weight: {breedDetail.weight} kg</p>

@@ -2,11 +2,11 @@
   background-color: grey;
   border: none;
   color: white;
-  padding: 20px;
+  padding: 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 25px;
   margin: 15px 2px;
   border-radius: 5px;
 }
@@ -15,5 +15,6 @@
 }
 
 .title {
-  font-family: "Roboto";
+  /* font-family: "Roboto"; */
+  font-size: 5rem;
 }

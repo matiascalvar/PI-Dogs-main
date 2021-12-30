@@ -1,6 +1,9 @@
+.body {
+  font-size: 20px;
+}
 .head {
-  height: 5rem;
-  background-color: black;
+  height: 6rem;
+  background-color: #353432;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -33,9 +36,9 @@
   width: 95vw;
   margin: auto;
   margin-top: 10px;
-  height: 3rem;
+  height: 5rem;
   border-radius: 5px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }

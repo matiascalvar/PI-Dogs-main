@@ -7,7 +7,7 @@ function LandingPage() {
     <div>
       <h1 className={styles.title}>Welcome to Dogs!</h1>
       <div>
-        <img src="https://i.imgur.com/mOiSapI.png" alt="" width="500" />
+        <img src="https://i.imgur.com/mOiSapI.png" alt="" width="600" />
       </div>
       <Link to="/home">
         <button className={styles.button}>Enter to Dogs</button>

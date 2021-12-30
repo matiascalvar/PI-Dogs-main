@@ -47,70 +47,75 @@ function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
 
   return (
     <>
-      <img className={styles.img} src={sortimg} alt="sort icon" />
-      {/* slide switch */}
-      <div>
-        <span> A - Z </span>
-        <label className={styles.switch} htmlFor="switchalpha">
-          <input
-            type="checkbox"
-            name="switchalpha"
-            id="switchalpha"
-            value={defaultValue}
-            onChange={handleSwitch}
-          />
-          <span className={styles.slider}></span>
-        </label>
+      {/* Sorts */}
+      <div className={styles.leftdiv}>
+        <div className={styles.sortsfilterdiv}>
+          <img className={styles.img} src={sortimg} alt="sort icon" />
+          <div>
+            <span> A - Z </span>
+            <label className={styles.switch} htmlFor="switchalpha">
+              <input
+                type="checkbox"
+                name="switchalpha"
+                id="switchalpha"
+                value={defaultValue}
+                onChange={handleSwitch}
+              />
+              <span className={styles.slider}></span>
+            </label>
+          </div>
+          &nbsp;
+          <div>
+            <span> Weight </span>
+            <label className={styles.switch} htmlFor="switchweight">
+              <input
+                type="checkbox"
+                name="switchweight"
+                id="switchweight"
+                value={defaultValue2}
+                onChange={handleSwitch2}
+              />
+              <span className={styles.slider}></span>
+            </label>
+          </div>
+        </div>
+        &nbsp;
+        {/* Filters */}
+        <div className={styles.sortsfilterdiv}>
+          <img className={styles.img} src={filterimg} alt="filter icon" />
+          <select
+            className={styles.select}
+            name="temperaments"
+            id="temps"
+            onChange={handleChangeFilterTemp}
+          >
+            <option value="ALL">All Temperaments</option>
+            {temperaments.map((e) => (
+              <option value={e.name} key={e.id}>
+                {e.name}
+              </option>
+            ))}
+          </select>
+          &nbsp;
+          <label htmlFor="origin">
+            <span>Origin: </span>
+            <select
+              className={styles.select}
+              name="origin"
+              id="origin"
+              onChange={handleChangeOrigin}
+            >
+              <option value="ALL">All</option>
+              <option value="db">DB</option>
+              <option value="api">API</option>
+            </select>
+          </label>
+        </div>
+        &nbsp;
       </div>
-      {/* <label htmlFor="abcorder">
-        <span> A - Z </span>
-        <select name="abcorder" id="abcorder" onChange={handleChange}>
-          <option value="ORDER_AZ">A - Z</option>
-          <option value="ORDER_ZA">Z - A</option>
-        </select>
-      </label> */}
-      &nbsp;
-      <div>
-        <span> Weight </span>
-        <label className={styles.switch} htmlFor="switchweight">
-          <input
-            type="checkbox"
-            name="switchweight"
-            id="switchweight"
-            value={defaultValue2}
-            onChange={handleSwitch2}
-          />
-          <span className={styles.slider}></span>
-        </label>
-      </div>
-      {/* <label htmlFor="weight">
-        <span> Weight: </span>
-        <select name="weight" id="weight" onChange={handleChange}>
-          <option value="WEIGHT_ASC">🡇</option>
-          <option value="WEIGHT_DESC">🡅</option>
-        </select>
-      </label> */}
-      &nbsp;
-      <img className={styles.img} src={filterimg} alt="filter icon" />
-      <select name="temperaments" id="temps" onChange={handleChangeFilterTemp}>
-        <option value="ALL">All Temperaments</option>
-        {temperaments.map((e) => (
-          <option value={e.name} key={e.id}>
-            {e.name}
-          </option>
-        ))}
-      </select>
-      &nbsp;
-      <label htmlFor="origin">
-        <span>Origin: </span>
-        <select name="origin" id="origin" onChange={handleChangeOrigin}>
-          <option value="ALL">ALL</option>
-          <option value="db">DB</option>
-          <option value="api">API</option>
-        </select>
-      </label>
-      &nbsp;
+      {/* Search and Creation */}
       <input
+        className={styles.search}
         onChange={handleChangeSearch}
         type="text"
         placeholder="Search a breed!"
