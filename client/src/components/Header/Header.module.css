@@ -7,7 +7,7 @@
 }
 .head {
   height: 5rem;
-  background-color: black;
+  background-color: #353432;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;

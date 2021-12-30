@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import { clearDetail, searchBreedDetail } from "../../actions";
+import Header from "../Header/Header.jsx";
 
 function Detail() {
   const dispatch = useDispatch();
@@ -13,10 +14,17 @@ function Detail() {
   }, [dispatch, id]);
   const breedDetail = useSelector((state) => state.breedDetail);
 
-  if (Object.keys(breedDetail).length === 0) return <h2>Loading...</h2>;
+  if (Object.keys(breedDetail).length === 0)
+    return (
+      <>
+        <Header />
+        <h2>Loading...</h2>
+      </>
+    );
   else {
     return (
       <>
+        <Header />
         <Link to="/home">Go back to home</Link>
         <h1>{breedDetail.name}</h1>
         <img src={breedDetail.image} alt={breedDetail.name} width="700" />

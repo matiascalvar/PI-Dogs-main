@@ -43,6 +43,7 @@ function Cards() {
               temperament={e.temperament}
               image={e.image}
               key={e.id}
+              id={e.id}
             />
           ))}
         </div>

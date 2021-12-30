@@ -1,17 +1,19 @@
 import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
-function Cards({ name, image, temperament, weight, key }) {
+function Card({ name, image, temperament, weight, key, id }) {
   return (
     <div className={styles.card}>
-      <h3>{name}</h3>
-      <img src={`${image}`} alt={`${name}`} width="300" />
-      <p>Temperament: {temperament}</p>
-      <p>Weight: {weight}</p>
-      <Link to={`/detail/${key}`}>
-        <button>More info</button>
+      <span className={styles.title}>{name}</span>
+      <img src={`${image}`} alt={`${name}`} />
+      <div className={styles.foot}>
+        <span>Temperament: {temperament}</span>
+        <span>Weight: {weight} kg</span>
+      </div>
+      <Link to={`/detail/${id}`}>
+        <button className={styles.btnInfo}>More info</button>
       </Link>
     </div>
   );
 }
 
-export default Cards;
+export default Card;

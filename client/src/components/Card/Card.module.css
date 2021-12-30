@@ -6,4 +6,26 @@
   border-radius: 5px;
   background-color: #ccc;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  overflow: auto;
+}
+.card img {
+  height: 220px;
+  border-radius: 5px;
+}
+.title {
+  display: block;
+  font-weight: bold;
+  padding: 3px;
+  text-transform: capitalize;
+}
+.foot span {
+  margin: 3px;
+  display: block;
+}
+.btnInfo {
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  width: 100px;
+  margin-bottom: 3px;
 }
