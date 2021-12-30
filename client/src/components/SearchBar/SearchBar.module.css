@@ -1,5 +1,6 @@
 .img {
-  width: 25px;
+  width: 35px;
+  height: 35px;
   padding-right: 5px;
 }
 
@@ -63,25 +64,54 @@ input:checked + .slider:before {
   border-radius: 5px;
   padding: 4px;
   background-color: #ccc;
-  /* font-size: 0.8rem; */
   border: none;
+  height: 3rem;
 }
 .sortsfilterdiv {
   border-radius: 5px;
   display: flex;
-  padding: 15px;
   background-color: rgb(124, 124, 124);
-}
-
-.search {
-  border-radius: 5px;
-  padding: 8px;
-  background-color: #fff;
-  /* font-size: 0.8rem; */
-  border: none;
+  height: 4rem;
+  align-items: center;
+  padding: 0px 10px;
 }
 
 .leftdiv {
   display: flex;
   margin-left: 10px;
+}
+.divsearch {
+  align-items: center;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+}
+.search {
+  border-radius: 5px;
+  padding: 8px 50px;
+  background-color: #fff;
+  font-size: 18px;
+  border: none;
+  margin: 0 30px;
+}
+.search {
+  border-radius: 5px;
+  display: flex;
+  padding: 8px;
+  /* background-color: rgb(124, 124, 124); */
+  /* align-self: center; */
+}
+.addimg {
+  width: 60px;
+  /* padding: 5px; */
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #ccc;
+  border-radius: 17px;
+}
+.addimg:hover {
+  width: 65px;
+  top: 12.5px;
+  right: 12.5px;
 }

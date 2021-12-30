@@ -1,10 +1,12 @@
 import React from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "./SearchBar.module.css";
 import sortimg from "./img/download.png";
 import filterimg from "./img/filter.png";
-import { useState } from "react";
+import addicon from "./img/more.png";
+
 function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
   const temperaments = useSelector((state) => state.temperaments);
 
@@ -114,17 +116,18 @@ function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
         &nbsp;
       </div>
       {/* Search and Creation */}
-      <input
-        className={styles.search}
-        onChange={handleChangeSearch}
-        type="text"
-        placeholder="Search a breed!"
-      />
-      &nbsp;
+      <div className={styles.divsearch}>
+        <input
+          className={styles.search}
+          onChange={handleChangeSearch}
+          type="text"
+          placeholder="Search a breed!"
+        />
+        &nbsp;
+      </div>
       <Link to="/form">
-        <button>Create new breed</button>
+        <img className={styles.addimg} src={addicon} alt="add icon" />
       </Link>
-      {/* https://www.w3schools.com/howto/howto_css_switch.asp */}
     </>
   );
 }
