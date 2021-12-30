@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Card from "../Card/Card";
+import Card from "../Card/Card.jsx";
 import { getBreeds } from "../../actions/index";
-import { Link } from "react-router-dom";
-
+import styles from "./Cards.module.css";
 function Cards() {
   const dispatch = useDispatch();
 
@@ -15,7 +14,7 @@ function Cards() {
   const nextPag = () => {
     if (breeds.length >= 8) {
       setCurrentPage(currentPage + 8);
-      // window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
   const prevPag = () => {
@@ -31,14 +30,13 @@ function Cards() {
   if (breeds.length) {
     return (
       <>
-        <div>
+        {/* <div>
           <button onClick={prevPag}>◄</button>
           <button> Page {currentPage / 8 + 1} </button>
           <button onClick={nextPag}>►</button>
-        </div>
-
-        {breeds.map((e) => (
-          <div key={e.id}>
+        </div> */}
+        <div className={styles.cardsContainer}>
+          {breeds.map((e) => (
             <Card
               name={e.name}
               weight={e.weight}
@@ -46,11 +44,8 @@ function Cards() {
               image={e.image}
               key={e.id}
             />
-            <Link to={`/detail/${e.id}`}>
-              <button>More info</button>
-            </Link>
-          </div>
-        ))}
+          ))}
+        </div>
         <div>
           <button onClick={prevPag}>◄</button>
           <button> Page {currentPage / 8 + 1} </button>
