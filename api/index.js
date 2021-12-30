@@ -62,7 +62,6 @@ conn.sync({force : true}).then(() => {
         
         let addingTemp = await callejero2.addTemperaments("3")
         let addingTemp2 = await callejero2.addTemperaments("4")
-        console.log(addingTemp)
     })
     .catch((e) => {
         console.log(e)
