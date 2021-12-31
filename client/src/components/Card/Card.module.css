@@ -7,25 +7,39 @@
   background-color: #ccc;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   overflow: auto;
+  transition: background-color 0.5s;
+}
+.card:hover {
+  background-color: rgb(173, 165, 165);
 }
 .card img {
-  height: 220px;
+  height: 250px;
   border-radius: 5px;
 }
 .title {
   display: block;
   font-weight: bold;
-  padding: 3px;
+  padding: 5px;
   text-transform: capitalize;
+  text-decoration: none;
+}
+.foot p {
+  margin: 0 5px;
+  display: block;
+  padding: 0;
 }
 .foot span {
-  margin: 3px;
-  display: block;
+  font-weight: bold;
 }
+
 .btnInfo {
   border: none;
   border-radius: 5px;
   height: 30px;
   width: 100px;
   margin-bottom: 3px;
+}
+a {
+  text-decoration: none;
+  color: black;
 }

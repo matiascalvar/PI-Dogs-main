@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import { clearDetail, searchBreedDetail } from "../../actions";
 import Header from "../Header/Header.jsx";
+import Loading from "../Loading/Loading";
 
 function Detail() {
   const dispatch = useDispatch();
@@ -18,14 +19,13 @@ function Detail() {
     return (
       <>
         <Header />
-        <h2>Loading...</h2>
+        <Loading />
       </>
     );
   else {
     return (
       <>
         <Header />
-        <Link to="/home">Go back to home</Link>
         <h1>{breedDetail.name}</h1>
         <img src={breedDetail.image} alt={breedDetail.name} width="700" />
         <p>Height: {breedDetail.height} cm</p>

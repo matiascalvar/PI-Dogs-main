@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Card from "../Card/Card.jsx";
 import { getBreeds } from "../../actions/index";
 import styles from "./Cards.module.css";
+import Loading from "../Loading/Loading.jsx";
+
 function Cards() {
   const dispatch = useDispatch();
 
@@ -30,11 +32,6 @@ function Cards() {
   if (breeds.length) {
     return (
       <>
-        {/* <div>
-          <button onClick={prevPag}>◄</button>
-          <button> Page {currentPage / 8 + 1} </button>
-          <button onClick={nextPag}>►</button>
-        </div> */}
         <div className={styles.cardsContainer}>
           {breeds.map((e) => (
             <Card
@@ -48,14 +45,18 @@ function Cards() {
           ))}
         </div>
         <div>
-          <button onClick={prevPag}>◄</button>
-          <button> Page {currentPage / 8 + 1} </button>
-          <button onClick={nextPag}>►</button>
+          <button className={styles.btn} onClick={prevPag}>
+            ◄
+          </button>
+          <span> {currentPage / 8 + 1} </span>
+          <button className={styles.btn} onClick={nextPag}>
+            ►
+          </button>
         </div>
       </>
     );
   } else {
-    return <h2>Loading...</h2>;
+    return <Loading />;
   }
 }
 

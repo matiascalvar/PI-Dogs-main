@@ -109,21 +109,31 @@ input:checked + .slider:before {
   width: 60px;
   /* padding: 5px; */
   position: absolute;
-  top: 4px;
-  right: 5px;
+  top: 3px;
+  right: 45px;
 }
 .addimg:hover {
   width: 65px;
-  top: 3px;
-  right: 3px;
+  top: 0px;
+  right: 43px;
 }
 .dot {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   /* padding: 5px; */
   position: absolute;
   top: 12px;
-  right: 12px;
+  right: 50px;
   background-color: #ccc;
   border-radius: 50%;
 }
+/* .addtext {
+  position: absolute;
+  top: 15px;
+  right: 120px;
+  color: #ccc;
+  display: none;
+}
+.addtext:hover {
+  display: inline;
+} */

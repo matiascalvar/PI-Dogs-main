@@ -122,8 +122,10 @@ function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
         />
         &nbsp;
       </div>
+
       <span className={styles.dot}></span>
-      <Link to="/form">
+      <Link to="/form" title="Add breed">
+        {/* <span className={styles.addtext}>Add breed</span> */}
         <img className={styles.addimg} src={addicon} alt="add icon" />
       </Link>
     </>
