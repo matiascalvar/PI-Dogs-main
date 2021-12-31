@@ -21,7 +21,9 @@ function Nav() {
   };
 
   const search = function (value) {
-    !value ? dispatch(getBreeds()) : dispatch(searchBreed(value));
+    // !value ? dispatch(getBreeds()) : dispatch(searchBreed(value));
+    !value ? dispatch(searchBreed("ALL")) : dispatch(searchBreed(value));
+    // dispatch(searchBreed(value));
   };
 
   const filterTempAction = function (option) {

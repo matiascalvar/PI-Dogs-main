@@ -4,7 +4,7 @@ import Card from "../Card/Card.jsx";
 import { getBreeds } from "../../actions/index";
 import styles from "./Cards.module.css";
 import Loading from "../Loading/Loading.jsx";
-
+import saddog from "../../images/sad.png";
 function Cards() {
   const dispatch = useDispatch();
 
@@ -39,7 +39,14 @@ function Cards() {
     dispatch(getBreeds());
   }, [dispatch]);
 
-  if (breeds.length) {
+  if (breeds[0] === false) {
+    return (
+      <>
+        <h1>Breed not found</h1>
+        <img src={saddog} alt="sad dog" />
+      </>
+    );
+  } else if (breeds.length) {
     return (
       <>
         <div className={styles.cardsContainer}>

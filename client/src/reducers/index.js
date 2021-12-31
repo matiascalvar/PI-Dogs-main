@@ -61,10 +61,29 @@ export default function reducer (state = initialState, action) {
               })
           };
       case SEARCH_BREED:
-          return {
-              ...state,
-              breedsToFilter: state.breedsToFilter.filter((breed) => breed.name.includes(action.payload))
-          };
+          if (action.payload === 'ALL') {
+              return {
+                  ...state,
+                  breedsToFilter: state.breeds
+              }
+          } else {
+              let searchedBreed = []
+              if (state.breedsToFilter[0] !== false) {
+                searchedBreed = state.breedsToFilter.filter((breed) => breed.name.includes(action.payload))
+              }
+              if (searchedBreed.length === 0) {
+                  return {
+                      ...state,
+                      breedsToFilter: [false]
+                }
+              }
+              else {
+                  return {
+                      ...state,
+                      breedsToFilter: searchedBreed
+                  }
+              }
+          }
       case FILTER_BY_TEMP:
           return {
               ...state,
