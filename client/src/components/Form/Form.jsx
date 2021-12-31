@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addBreed } from "../../actions";
 import Header from "../Header/Header.jsx";
+import styles from "./Form.module.css";
 export default function Form() {
   const temperaments = useSelector((state) => state.temperaments);
   const dispatch = useDispatch();
@@ -102,9 +103,8 @@ export default function Form() {
   return (
     <>
       <Header />
-      <Link to="/home">Go back to home</Link>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form className={styles.card} onSubmit={handleSubmit}>
+        <div className={styles.input}>
           <input
             onChange={handleInputChange}
             name="name"
@@ -113,6 +113,9 @@ export default function Form() {
             value={input.name}
           />
           {errors.name && <p>{errors.name}</p>}
+        </div>
+        <div>
+          <input type="text" placeholder="Image" />
         </div>
         <div>
           <input

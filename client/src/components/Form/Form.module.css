@@ -1,0 +1,15 @@
+.card {
+  /* border: 2px solid black; */
+  width: 40vw;
+  height: 70vh;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #ccc;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.input {
+  width: 20vw;
+  background-color: black;
+  margin: 10px auto;
+}
