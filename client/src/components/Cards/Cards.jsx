@@ -13,6 +13,9 @@ function Cards() {
     state.breedsToFilter.slice(currentPage, currentPage + 8)
   );
 
+  const totalBreedsPages = useSelector((state) =>
+    Math.ceil(state.breedsToFilter.length / 8)
+  );
   const nextPag = () => {
     if (breeds.length >= 8) {
       setCurrentPage(currentPage + 8);
@@ -24,6 +27,15 @@ function Cards() {
       ? setCurrentPage(currentPage - 8)
       : setCurrentPage(currentPage);
   };
+
+  if (currentPage !== 0) {
+    if (currentPage / 8 + 1 > totalBreedsPages) {
+      prevPag();
+      console.log("No' pasamo'");
+      console.log("current: ", currentPage / 8);
+      console.log("totalPages: ", totalBreedsPages);
+    }
+  }
 
   useEffect(() => {
     dispatch(getBreeds());
@@ -48,7 +60,10 @@ function Cards() {
           <button className={styles.btn} onClick={prevPag}>
             ◄
           </button>
-          <span> {currentPage / 8 + 1} </span>
+          <span>
+            {" "}
+            {currentPage / 8 + 1} / {totalBreedsPages}{" "}
+          </span>
           <button className={styles.btn} onClick={nextPag}>
             ►
           </button>

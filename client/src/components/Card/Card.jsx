@@ -1,6 +1,6 @@
 import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
-function Card({ name, image, temperament, weight, key, id }) {
+function Card({ name, image, temperament, weight, id }) {
   return (
     <Link to={`/detail/${id}`}>
       <div className={styles.card}>
