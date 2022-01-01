@@ -51,6 +51,7 @@ function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
         <div className={styles.sortsfilterdiv}>
           <img className={styles.img} src={sortimg} alt="sort icon" />
           <div>
+            &nbsp;
             <span> A - Z </span>
             <label className={styles.switch} htmlFor="switchalpha">
               <input
@@ -65,6 +66,7 @@ function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
           </div>
           &nbsp;
           <div>
+            &nbsp;
             <span> Weight </span>
             <label className={styles.switch} htmlFor="switchweight">
               <input
@@ -82,6 +84,7 @@ function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
         {/* Filters */}
         <div className={styles.sortsfilterdiv}>
           <img className={styles.img} src={filterimg} alt="filter icon" />
+          &nbsp;
           <select
             className={styles.select}
             name="temperaments"

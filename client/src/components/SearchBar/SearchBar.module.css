@@ -66,6 +66,7 @@ input:checked + .slider:before {
   background-color: #ccc;
   border: none;
   height: 3rem;
+  margin-right: 20px;
 }
 .sortsfilterdiv {
   border-radius: 5px;
@@ -73,7 +74,8 @@ input:checked + .slider:before {
   /* background-color: rgb(124, 124, 124); */
   height: 4rem;
   align-items: center;
-  padding: 0px 30px;
+  /* justify-content: space-between; */
+  margin: 0px 30px;
 }
 
 .leftdiv {

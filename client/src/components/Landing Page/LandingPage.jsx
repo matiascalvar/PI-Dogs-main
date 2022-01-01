@@ -6,8 +6,10 @@ function LandingPage() {
   return (
     <div>
       <h1 className={styles.title}>Welcome to Dogs!</h1>
-      <div>
-        <img src="https://i.imgur.com/mOiSapI.png" alt="" width="600" />
+      <div className={styles.dogimg}>
+        <Link to="/home">
+          <img src="https://i.imgur.com/mOiSapI.png" alt="dog face" />
+        </Link>
       </div>
       <Link to="/home">
         <button className={styles.button}>Enter to Dogs</button>

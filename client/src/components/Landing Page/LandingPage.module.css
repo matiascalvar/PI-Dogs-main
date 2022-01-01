@@ -19,3 +19,14 @@
   /* font-family: "Roboto"; */
   font-size: 5rem;
 }
+.dogimg img {
+  width: 600px;
+  margin: auto;
+  max-width: 600px;
+}
+
+@media (max-width: 992px) {
+  .dogimg img {
+    width: 500px;
+  }
+}
