@@ -62,7 +62,10 @@ export default function Form() {
       errors.name = "Only lowercase letters allowed";
     }
     // Image
-    if (!input.image) errors.image = "If blank, a default img will be setted";
+    var imgPattern = /(https?:\/\/.*\.(?:png|jpg))/i;
+    if (!input.image) errors.image = "Image link can't be blank";
+    else if (!imgPattern.test(input.image))
+      errors.image = "Must be a image link";
     // Height
     if (!input.minHeight) errors.minHeight = "Min Height can't be blank";
     else if (input.minHeight <= 0) errors.minHeight = "Must be above zero";
@@ -78,7 +81,6 @@ export default function Form() {
     else if (input.minLifeSpan <= 0) errors.minLifeSpan = "Must be above zero";
     if (!input.maxLifeSpan) errors.maxLifeSpan = "Max LifeSpan can't be blank";
     else if (input.maxLifeSpan <= 0) errors.maxLifeSpan = "Must be above zero";
-    // if errors no tiene elementos disabled = false, else true
     return errors;
   }
 
@@ -87,15 +89,16 @@ export default function Form() {
     if (input.name) {
       let dogToDispatch = {
         name: input.name,
+        image: input.image,
         height: `${input.minHeight} - ${input.maxHeight}`,
         weight: `${input.minWeight} - ${input.maxWeight}`,
         lifeSpan: `${input.minLifeSpan} - ${input.minLifeSpan}`,
         temps: input.temperaments,
       };
 
-      if (!input.image === undefined) {
-        dogToDispatch["image"] = input.image;
-      }
+      // if (input.image === undefined) {
+      //   dogToDispatch["image"] = input.image;
+      // }
       console.log(dogToDispatch.image);
       dispatch(addBreed(dogToDispatch));
       setInput({
