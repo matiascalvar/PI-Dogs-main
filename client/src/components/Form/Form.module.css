@@ -100,3 +100,24 @@
 .inputdivhalf span {
   color: crimson;
 }
+
+.ul {
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+.success {
+  background-color: rgb(45, 150, 62);
+  width: 300px;
+  height: 40px;
+  margin: auto;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  font-size: larger;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}

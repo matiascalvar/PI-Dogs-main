@@ -17,6 +17,7 @@ export default function Form() {
     minLifeSpan: "",
     maxLifeSpan: "",
     temperaments: [],
+    created: false,
   });
 
   const [errors, setErrors] = useState({});
@@ -32,17 +33,18 @@ export default function Form() {
     }
     // console.log(input);
   }
-  // function remove(e) {
-  //   let concat = input[e.target.name].filter((element) => element !=);
-  //       setInput({
-  //         ...input,
-  //         [e.target.name]: concat,
-  //       });
-  // }
+  function remove(e) {
+    let toDelete = e.target.innerText;
+    setInput({
+      ...input,
+      temperaments: input.temperaments.filter((e) => e !== toDelete),
+    });
+  }
   function handleInputChange(e) {
     setInput({
       ...input,
       [e.target.name]: e.target.value,
+      created: false,
       // height : value en input con name height
     });
     setErrors(
@@ -96,10 +98,6 @@ export default function Form() {
         temps: input.temperaments,
       };
 
-      // if (input.image === undefined) {
-      //   dogToDispatch["image"] = input.image;
-      // }
-      console.log(dogToDispatch.image);
       dispatch(addBreed(dogToDispatch));
       setInput({
         name: "",
@@ -111,11 +109,13 @@ export default function Form() {
         minLifeSpan: "",
         maxLifeSpan: "",
         temperaments: [],
+        created: true,
       });
     } else {
       alert("You cannot create an empty breed!");
     }
   }
+  console.log(input.created);
   /////////////////////////////////////////////////////////////////////////////
   return (
     <>
@@ -217,16 +217,17 @@ export default function Form() {
         </select>
 
         <div className={styles.inputdiv}>
-          <ul>
+          <ul className={styles.ul}>
             {input.temperaments.length
               ? input.temperaments.map((e, i) => (
-                  <li key={i}>
-                    {e} <span>x</span>
+                  <li key={i} onClick={remove}>
+                    {e}
                   </li>
                 ))
               : null}
           </ul>
         </div>
+
         {Object.keys(errors).length === 0 ? (
           <button className={styles.button}>Create new breed!</button>
         ) : (
@@ -237,13 +238,11 @@ export default function Form() {
             &#128711;
           </button>
         )}
-
-        {/* <button
-          className={styles.button}
-          disabled={Object.keys(errors).length === 0 ? "" : true}
-        >
-          Create new breed!
-        </button> */}
+        {input.created ? (
+          <div className={styles.success}>
+            <span>Breed created successfully!</span>
+          </div>
+        ) : null}
       </form>
     </>
   );
