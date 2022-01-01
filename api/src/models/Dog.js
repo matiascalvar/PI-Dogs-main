@@ -32,6 +32,5 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       defaultValue: "https://i.ibb.co/x1KPxfT/anoir-chafik-2-3c4d-IFYFU-unsplash.jpg"
     }
-    // Agrego un campo image con una imagen por default?
   }, { timestamps: false});
 };

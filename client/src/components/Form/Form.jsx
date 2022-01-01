@@ -4,11 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { addBreed } from "../../actions";
 import Header from "../Header/Header.jsx";
 import styles from "./Form.module.css";
+
 export default function Form() {
   const temperaments = useSelector((state) => state.temperaments);
   const dispatch = useDispatch();
   const [input, setInput] = useState({
     name: "",
+    image: "",
     minHeight: "",
     maxHeight: "",
     minWeight: "",
@@ -81,6 +83,7 @@ export default function Form() {
     e.preventDefault();
     let dogToDispatch = {
       name: input.name,
+      image: input.image,
       height: `${input.minHeight} - ${input.maxHeight}`,
       weight: `${input.minWeight} - ${input.maxWeight}`,
       lifeSpan: `${input.minLifeSpan} - ${input.minLifeSpan}`,
@@ -90,6 +93,7 @@ export default function Form() {
     console.log(dogToDispatch);
     setInput({
       name: "",
+      image: "",
       minHeight: "",
       maxHeight: "",
       minWeight: "",
@@ -115,7 +119,13 @@ export default function Form() {
           {errors.name && <p>{errors.name}</p>}
         </div>
         <div>
-          <input type="text" placeholder="Image" />
+          <input
+            onChange={handleInputChange}
+            name="image"
+            type="text"
+            placeholder="Image"
+            value={input.image}
+          />
         </div>
         <div>
           <input

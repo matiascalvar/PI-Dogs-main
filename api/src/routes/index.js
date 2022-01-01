@@ -52,9 +52,7 @@ router.get('/dogs', function (req, res) {
     {
         if (req.query.hasOwnProperty('name')) {
             let { name } = req.query
-            // Pongo en mayus la 1º letra del nombre que me llegue, bc asi esta en la api
-            // Ojo que puede contener dos palabras ambas capitalizadas RESOLVER
-            // name = name.charAt(0).toUpperCase() + name.slice(1)
+        
             let found = false
             let breedsWithName= []
             for (let i = 0; i < allBreeds.length; i++) {
@@ -113,7 +111,7 @@ router.get('/temperament', async function (req, res) {
 })
 
 router.post('/dog', async function (req, res) {
-    let { name, height, weight, lifeSpan, temps } = req.body
+    let { name, height, weight, lifeSpan, temps, image } = req.body
     var arrTemps = []
 
     for (let i = 0; i < temps.length; i++) {
@@ -128,6 +126,7 @@ router.post('/dog', async function (req, res) {
         weight,
         height,
         life_span: `${lifeSpan} years`,
+        image,
         origin: "db"
     });
     arrTemps.forEach(async (temp) => (await dog.addTemperaments(temp)))
