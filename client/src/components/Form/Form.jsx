@@ -150,45 +150,47 @@ export default function Form() {
           {errors.minHeight && <span>{errors.minHeight}</span>}
         </div>
 
-        <div className={styles.inputdiv}>
-          <input
-            onChange={handleInputChange}
-            name="minWeight"
-            type="number"
-            placeholder="minWeight"
-          />
+        <div className={styles.inputdivhalf}>
+          <div>
+            <input
+              onChange={handleInputChange}
+              name="minWeight"
+              type="number"
+              placeholder="minWeight"
+            />
+            <input
+              onChange={handleInputChange}
+              name="maxWeight"
+              type="number"
+              placeholder="maxWeight"
+            />
+          </div>
           {errors.minWeight && <span>{errors.minWeight}</span>}
-        </div>
-        <div className={styles.inputdiv}>
-          <input
-            onChange={handleInputChange}
-            name="maxWeight"
-            type="number"
-            placeholder="maxWeight"
-          />
           {errors.maxWeight && <span>{errors.maxWeight}</span>}
         </div>
-        <div className={styles.inputdiv}>
-          <input
-            onChange={handleInputChange}
-            name="minLifeSpan"
-            type="number"
-            placeholder="minLifeSpan"
-          />
+
+        <div className={styles.inputdivhalf}>
+          <div>
+            <input
+              onChange={handleInputChange}
+              name="minLifeSpan"
+              type="number"
+              placeholder="minLifeSpan"
+            />
+            <input
+              onChange={handleInputChange}
+              name="maxLifeSpan"
+              type="number"
+              placeholder="maxLifeSpan"
+            />
+          </div>
           {errors.minLifeSpan && <span>{errors.minLifeSpan}</span>}
-        </div>
-        <div className={styles.inputdiv}>
-          <input
-            onChange={handleInputChange}
-            name="maxLifeSpan"
-            type="number"
-            placeholder="maxLifeSpan"
-          />
           {errors.maxLifeSpan && <span>{errors.maxLifeSpan}</span>}
         </div>
+
         {/* Temperaments Select  */}
         <select
-          className={styles.inputdiv}
+          className={styles.select}
           onChange={handleTemps}
           name="temperaments"
           id="temperaments"

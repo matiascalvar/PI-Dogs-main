@@ -9,7 +9,7 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .inputdiv {
-  width: 20vw;
+  width: 300px;
   height: 80px;
   /* background-color: cadetblue; */
   margin: 10px auto;
@@ -19,13 +19,14 @@
 }
 .inputdiv input {
   background-color: #ccc;
-  width: 20vw;
+  width: 300px;
   height: 50px;
   margin: auto;
   border-radius: 5px;
   border: none;
   text-align: center;
   font-size: larger;
+  padding: 0;
 }
 
 .button {
@@ -44,17 +45,19 @@
 }
 
 .inputdivhalf {
-  width: 20vw;
+  width: 300px;
   height: 80px;
   /* background-color: cadetblue; */
   margin: 10px auto;
+  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
+  /* background-color: #ccc; */
 }
 .inputdivhalf input {
   background-color: #ccc;
-  width: 8vw;
+  width: 143px;
   height: 50px;
   margin: auto;
   border-radius: 5px;
@@ -63,5 +66,13 @@
   font-size: larger;
 }
 .inputdivhalf input:first-of-type {
-  margin-right: 44px;
+  margin-right: 5px;
+}
+
+.select {
+  width: 300px;
+  height: 40px;
+  background-color: #ccc;
+  margin: 10px auto;
+  border-radius: 5px;
 }
