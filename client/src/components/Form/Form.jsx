@@ -84,30 +84,34 @@ export default function Form() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    let dogToDispatch = {
-      name: input.name,
-      height: `${input.minHeight} - ${input.maxHeight}`,
-      weight: `${input.minWeight} - ${input.maxWeight}`,
-      lifeSpan: `${input.minLifeSpan} - ${input.minLifeSpan}`,
-      temps: input.temperaments,
-    };
+    if (input.name) {
+      let dogToDispatch = {
+        name: input.name,
+        height: `${input.minHeight} - ${input.maxHeight}`,
+        weight: `${input.minWeight} - ${input.maxWeight}`,
+        lifeSpan: `${input.minLifeSpan} - ${input.minLifeSpan}`,
+        temps: input.temperaments,
+      };
 
-    if (!input.image === undefined) {
-      dogToDispatch["image"] = input.image;
+      if (!input.image === undefined) {
+        dogToDispatch["image"] = input.image;
+      }
+      console.log(dogToDispatch.image);
+      dispatch(addBreed(dogToDispatch));
+      setInput({
+        name: "",
+        image: "",
+        minHeight: "",
+        maxHeight: "",
+        minWeight: "",
+        maxWeight: "",
+        minLifeSpan: "",
+        maxLifeSpan: "",
+        temperaments: [],
+      });
+    } else {
+      alert("You cannot create an empty breed!");
     }
-    console.log(dogToDispatch.image);
-    dispatch(addBreed(dogToDispatch));
-    setInput({
-      name: "",
-      image: "",
-      minHeight: "",
-      maxHeight: "",
-      minWeight: "",
-      maxWeight: "",
-      minLifeSpan: "",
-      maxLifeSpan: "",
-      temperaments: [],
-    });
   }
   /////////////////////////////////////////////////////////////////////////////
   return (
