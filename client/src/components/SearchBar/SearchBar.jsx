@@ -97,7 +97,7 @@ function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
           </select>
           &nbsp;
           <label htmlFor="origin">
-            <span>Origin: </span>
+            <span className={styles.origin}>Origin: </span>
             <select
               className={styles.select}
               name="origin"
@@ -125,7 +125,6 @@ function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
 
       <span className={styles.dot}></span>
       <Link to="/form" title="Add breed">
-        {/* <span className={styles.addtext}>Add breed</span> */}
         <img className={styles.addimg} src={addicon} alt="add icon" />
       </Link>
     </>

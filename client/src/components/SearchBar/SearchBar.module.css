@@ -127,13 +127,22 @@ input:checked + .slider:before {
   background-color: #ccc;
   border-radius: 50%;
 }
-/* .addtext {
-  position: absolute;
-  top: 15px;
-  right: 120px;
-  color: #ccc;
-  display: none;
+
+@media (max-width: 992px) {
+  .img {
+    display: none;
+  }
+  .search {
+    border-radius: 5px;
+    padding: 8px 8px;
+    background-color: #ccc;
+    color: black;
+    font-size: 18px;
+    border: none;
+    margin: 0 30px;
+    height: 28px;
+  }
+  .origin {
+    display: none;
+  }
 }
-.addtext:hover {
-  display: inline;
-} */
