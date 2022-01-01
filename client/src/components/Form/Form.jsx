@@ -21,7 +21,6 @@ export default function Form() {
   });
 
   const [errors, setErrors] = useState({});
-  // const [disable, setdisable] = useState(true);
 
   function handleTemps(e) {
     if (input.temperaments.length < 4) {
@@ -54,7 +53,6 @@ export default function Form() {
       })
     );
   }
-  // console.log(errors);
   function validation(input) {
     var errors = {};
     // Name
@@ -85,7 +83,6 @@ export default function Form() {
     else if (input.maxLifeSpan <= 0) errors.maxLifeSpan = "Must be above zero";
     return errors;
   }
-
   function handleSubmit(e) {
     e.preventDefault();
     if (input.name) {
@@ -115,7 +112,7 @@ export default function Form() {
       alert("You cannot create an empty breed!");
     }
   }
-  console.log(input.created);
+
   /////////////////////////////////////////////////////////////////////////////
   return (
     <>

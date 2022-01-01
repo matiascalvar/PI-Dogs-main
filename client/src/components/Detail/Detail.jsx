@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { clearDetail, searchBreedDetail } from "../../actions";
 import Header from "../Header/Header.jsx";
 import Loading from "../Loading/Loading";
-
+import styles from "./Detail.module.css";
 function Detail() {
   const dispatch = useDispatch();
   let { id } = useParams();
@@ -26,12 +26,16 @@ function Detail() {
     return (
       <>
         <Header />
-        <h1>{breedDetail.name}</h1>
-        <img src={breedDetail.image} alt={breedDetail.name} width="700" />
-        <p>Height: {breedDetail.height} cm</p>
-        <p>Weight: {breedDetail.weight} kg</p>
-        <p>Temperaments: {breedDetail.temperament}</p>
-        <p>Life Span: {breedDetail.life_span}</p>
+        <div className={styles.card}>
+          <h1>{breedDetail.name}</h1>
+          <img src={breedDetail.image} alt={breedDetail.name} width="700" />
+          <div className={styles.foot}>
+            <p>Height: {breedDetail.height} cm</p>
+            <p>Weight: {breedDetail.weight} kg</p>
+            <p>Temperaments: {breedDetail.temperament}</p>
+            <p>Life Span: {breedDetail.life_span}</p>
+          </div>
+        </div>
       </>
     );
   }
