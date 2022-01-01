@@ -10,7 +10,8 @@
 
 .card img {
   border-radius: 5px;
-  max-width: 769px;
+  /* max-width: 769px; */
+  max-width: 40vw;
   max-height: 550px;
   width: auto;
   height: auto;
