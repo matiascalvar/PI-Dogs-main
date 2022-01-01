@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addBreed } from "../../actions";
@@ -29,7 +28,7 @@ export default function Form() {
       ...input,
       [e.target.name]: concat,
     });
-    console.log(input);
+    // console.log(input);
   }
   // function remove(e) {
   //   let concat = input[e.target.name].filter((element) => element !=);
@@ -44,7 +43,6 @@ export default function Form() {
       [e.target.name]: e.target.value,
       // height : value en input con name height
     });
-    console.log(input);
     setErrors(
       validation({
         ...input,
@@ -83,14 +81,17 @@ export default function Form() {
     e.preventDefault();
     let dogToDispatch = {
       name: input.name,
-      image: input.image,
       height: `${input.minHeight} - ${input.maxHeight}`,
       weight: `${input.minWeight} - ${input.maxWeight}`,
       lifeSpan: `${input.minLifeSpan} - ${input.minLifeSpan}`,
       temps: input.temperaments,
     };
+
+    if (!input.image === undefined) {
+      dogToDispatch["image"] = input.image;
+    }
+    console.log(dogToDispatch.image);
     dispatch(addBreed(dogToDispatch));
-    console.log(dogToDispatch);
     setInput({
       name: "",
       image: "",
@@ -108,7 +109,7 @@ export default function Form() {
     <>
       <Header />
       <form className={styles.card} onSubmit={handleSubmit}>
-        <div className={styles.input}>
+        <div className={styles.inputdiv}>
           <input
             onChange={handleInputChange}
             name="name"
@@ -116,9 +117,9 @@ export default function Form() {
             placeholder="Name"
             value={input.name}
           />
-          {errors.name && <p>{errors.name}</p>}
+          {errors.name && <span>{errors.name}</span>}
         </div>
-        <div>
+        <div className={styles.inputdiv}>
           <input
             onChange={handleInputChange}
             name="image"
@@ -127,64 +128,71 @@ export default function Form() {
             value={input.image}
           />
         </div>
-        <div>
-          <input
-            onChange={handleInputChange}
-            name="minHeight"
-            type="number"
-            placeholder="minHeight"
-            value={input.minHeight}
-          />
-          {errors.minHeight && <p>{errors.minHeight}</p>}
+        <div className={styles.inputdivhalf}>
+          <div>
+            <input
+              onChange={handleInputChange}
+              name="minHeight"
+              type="number"
+              placeholder="minHeight"
+              value={input.minHeight}
+            />
+
+            <input
+              onChange={handleInputChange}
+              name="maxHeight"
+              type="number"
+              placeholder="maxHeight"
+              value={input.maxHeight}
+            />
+          </div>
+          {errors.maxHeight && <span>{errors.maxHeight}</span>}
+          {errors.minHeight && <span>{errors.minHeight}</span>}
         </div>
-        <div>
-          <input
-            onChange={handleInputChange}
-            name="maxHeight"
-            type="number"
-            placeholder="maxHeight"
-            value={input.maxHeight}
-          />
-          {errors.maxHeight && <p>{errors.maxHeight}</p>}
-        </div>
-        <div>
+
+        <div className={styles.inputdiv}>
           <input
             onChange={handleInputChange}
             name="minWeight"
             type="number"
             placeholder="minWeight"
           />
-          {errors.minWeight && <p>{errors.minWeight}</p>}
+          {errors.minWeight && <span>{errors.minWeight}</span>}
         </div>
-        <div>
+        <div className={styles.inputdiv}>
           <input
             onChange={handleInputChange}
             name="maxWeight"
             type="number"
             placeholder="maxWeight"
           />
-          {errors.maxWeight && <p>{errors.maxWeight}</p>}
+          {errors.maxWeight && <span>{errors.maxWeight}</span>}
         </div>
-        <div>
+        <div className={styles.inputdiv}>
           <input
             onChange={handleInputChange}
             name="minLifeSpan"
             type="number"
             placeholder="minLifeSpan"
           />
-          {errors.minLifeSpan && <p>{errors.minLifeSpan}</p>}
+          {errors.minLifeSpan && <span>{errors.minLifeSpan}</span>}
         </div>
-        <div>
+        <div className={styles.inputdiv}>
           <input
             onChange={handleInputChange}
             name="maxLifeSpan"
             type="number"
             placeholder="maxLifeSpan"
           />
-          {errors.maxLifeSpan && <p>{errors.maxLifeSpan}</p>}
+          {errors.maxLifeSpan && <span>{errors.maxLifeSpan}</span>}
         </div>
         {/* Temperaments Select  */}
-        <select onChange={handleTemps} name="temperaments" id="temperaments">
+        <select
+          className={styles.inputdiv}
+          onChange={handleTemps}
+          name="temperaments"
+          id="temperaments"
+        >
           <option value="">-Choose one or more-</option>
           {temperaments.map((e) => (
             <option value={e.name} key={e.id}>
@@ -193,7 +201,7 @@ export default function Form() {
           ))}
         </select>
 
-        <div>
+        <div className={styles.inputdiv}>
           <ul>
             {input.temperaments.length
               ? input.temperaments.map((e, i) => (
@@ -204,7 +212,10 @@ export default function Form() {
               : null}
           </ul>
         </div>
-        <button disabled={Object.keys(errors).length === 0 ? "" : true}>
+        <button
+          className={styles.button}
+          disabled={Object.keys(errors).length === 0 ? "" : true}
+        >
           Create new breed!
         </button>
       </form>

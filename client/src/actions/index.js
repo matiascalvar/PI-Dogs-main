@@ -42,7 +42,7 @@ export const searchBreedDetail = (id) => async dispatch => {
 
 export function addBreed(breed) {
   return async function (dispatch) {
-    console.log("inside addBreed try")
+    
     const response = await axios.post(
       "http://localhost:3001/dog",
       breed

@@ -1,15 +1,67 @@
 .card {
   /* border: 2px solid black; */
   width: 40vw;
-  height: 70vh;
+  height: 80vh;
   margin: 10px auto;
   padding: 15px;
   border-radius: 5px;
-  background-color: #ccc;
+  background-color: rgb(173, 165, 165);
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-.input {
+.inputdiv {
   width: 20vw;
-  background-color: cadetblue;
+  height: 80px;
+  /* background-color: cadetblue; */
   margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+}
+.inputdiv input {
+  background-color: #ccc;
+  width: 20vw;
+  height: 50px;
+  margin: auto;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  font-size: larger;
+}
+
+.button {
+  background-color: grey;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 15px 30px;
+  border-radius: 5px;
+}
+.button:hover {
+  background-color: rgb(70, 66, 66);
+}
+
+.inputdivhalf {
+  width: 20vw;
+  height: 80px;
+  /* background-color: cadetblue; */
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+}
+.inputdivhalf input {
+  background-color: #ccc;
+  width: 8vw;
+  height: 50px;
+  margin: auto;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  font-size: larger;
+}
+.inputdivhalf input:first-of-type {
+  margin-right: 44px;
 }
