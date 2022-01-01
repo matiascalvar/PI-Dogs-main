@@ -23,11 +23,13 @@ export default function Form() {
   // const [disable, setdisable] = useState(true);
 
   function handleTemps(e) {
-    let concat = input[e.target.name].concat(e.target.value);
-    setInput({
-      ...input,
-      [e.target.name]: concat,
-    });
+    if (input.temperaments.length < 4) {
+      let concat = input[e.target.name].concat(e.target.value);
+      setInput({
+        ...input,
+        [e.target.name]: concat,
+      });
+    }
     // console.log(input);
   }
   // function remove(e) {
@@ -53,25 +55,28 @@ export default function Form() {
   // console.log(errors);
   function validation(input) {
     var errors = {};
+    // Name
     var namePattern = /^[a-z ]+$/g;
     if (!input.name) errors.name = "Name can't be blank";
     else if (!namePattern.test(input.name)) {
       errors.name = "Only lowercase letters allowed";
     }
+    // Image
+    if (!input.image) errors.image = "If blank, a default img will be setted";
     // Height
-    if (!input.minHeight) errors.minHeight = "minHeight can't be blank";
+    if (!input.minHeight) errors.minHeight = "Min Height can't be blank";
     else if (input.minHeight <= 0) errors.minHeight = "Must be above zero";
-    if (!input.maxHeight) errors.maxHeight = "maxHeight can't be blank";
+    if (!input.maxHeight) errors.maxHeight = "Max Height can't be blank";
     else if (input.maxHeight <= 0) errors.maxHeight = "Must be above zero";
     // Weight
-    if (!input.minWeight) errors.minWeight = "minWeight can't be blank";
+    if (!input.minWeight) errors.minWeight = "Min Weight can't be blank";
     else if (input.minWeight <= 0) errors.minWeight = "Must be above zero";
-    if (!input.maxWeight) errors.maxWeight = "maxWeight can't be blank";
+    if (!input.maxWeight) errors.maxWeight = "Max Weight can't be blank";
     else if (input.maxWeight <= 0) errors.maxWeight = "Must be above zero";
     // Life Span
-    if (!input.minLifeSpan) errors.minLifeSpan = "minLifeSpan can't be blank";
+    if (!input.minLifeSpan) errors.minLifeSpan = "Min LifeSpan can't be blank";
     else if (input.minLifeSpan <= 0) errors.minLifeSpan = "Must be above zero";
-    if (!input.maxLifeSpan) errors.maxLifeSpan = "maxLifeSpan can't be blank";
+    if (!input.maxLifeSpan) errors.maxLifeSpan = "Max LifeSpan can't be blank";
     else if (input.maxLifeSpan <= 0) errors.maxLifeSpan = "Must be above zero";
     // if errors no tiene elementos disabled = false, else true
     return errors;
@@ -127,6 +132,7 @@ export default function Form() {
             placeholder="Image"
             value={input.image}
           />
+          {errors.image && <span>{errors.image}</span>}
         </div>
         <div className={styles.inputdivhalf}>
           <div>
@@ -214,12 +220,23 @@ export default function Form() {
               : null}
           </ul>
         </div>
-        <button
+        {Object.keys(errors).length === 0 ? (
+          <button className={styles.button}>Create new breed!</button>
+        ) : (
+          <button
+            disabled={Object.keys(errors).length === 0 ? "" : true}
+            className={styles.buttonDisabled}
+          >
+            &#128711;
+          </button>
+        )}
+
+        {/* <button
           className={styles.button}
           disabled={Object.keys(errors).length === 0 ? "" : true}
         >
           Create new breed!
-        </button>
+        </button> */}
       </form>
     </>
   );
