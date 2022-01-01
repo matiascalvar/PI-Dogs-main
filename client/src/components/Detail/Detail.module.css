@@ -18,8 +18,14 @@
 }
 .card h1 {
   text-transform: capitalize;
+  margin: 10px 0;
 }
 .foot {
   background-color: #ccc;
   border-radius: 5px;
+  font-size: 1.1rem;
+}
+.foot span {
+  font-weight: bold;
+  font-size: larger;
 }
