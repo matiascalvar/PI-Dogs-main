@@ -20,7 +20,6 @@ export default function reducer (state = initialState, action) {
           return {
               ...state,
               temperaments: action.payload
-            //    arr: [...state.arr, action.newItem] para un solo element. concat para array
           };
       case ORDER_ZA:
           return {
@@ -90,10 +89,42 @@ export default function reducer (state = initialState, action) {
               breedsToFilter: action.payload === 'ALL'? state.breeds : state.breeds.filter((breed) => (breed.temperament? breed.temperament.includes(action.payload):null))
           };
       case FILTER_BY_ORIGIN:
-          return {
-              ...state,
-              breedsToFilter: action.payload === 'ALL'? state.breeds : state.breeds.filter((breed) => breed.origin === action.payload)
-          };
+          if (action.payload === 'ALL') {
+              return {
+                  ...state,
+                  breedsToFilter: state.breeds
+              }
+          }
+          else {
+              let breedsByOrigin = []
+              breedsByOrigin = state.breeds.filter((breed) => breed.origin === action.payload)
+              if (!breedsByOrigin.length) {
+                  return {
+                      ...state,
+                      breedsToFilter: ['db empty']
+                  }
+              }
+              else {
+                  return {
+                      ...state,
+                      breedsToFilter: breedsByOrigin
+                  }
+              }
+
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
       case 'GET_DETAIL':
           return {
               ...state,
