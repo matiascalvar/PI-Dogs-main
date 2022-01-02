@@ -10,16 +10,14 @@ const router = Router();
 // router.use(express.json());
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
-// router.route('/dogs').get()...
-// Returns an instance of a single route which you can then use to handle HTTP verbs with optional middleware. Use router.route() to avoid duplicate route naming and thus typing errors.
-var tempss
+
 function getBreeds() {
     let breedsAPI = axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
     .then( async function (response) {
         var breeds = response.data.map(breed => (
             {   
                 id: breed.id,
-                name: breed.name.toLowerCase(), // pasar todo a minuscula
+                name: breed.name.toLowerCase(),
                 weight: breed.weight.metric.replace('NaN - ','').replace('NaN','26'),
                 height: breed.height.metric,
                 life_span: breed.life_span,
@@ -79,24 +77,14 @@ router.get('/dogs', function (req, res) {
 })
 
 router.get('/dogs/:idRaza', function (req, res) {
-    let { idRaza } = req.params
-    let found = false
-    let breedFound = []
+    let { idRaza } = req.params;
     getBreeds()
         .then(() => {
-        for (let j = 0; j < allBreeds.length; j++) {
-            if (allBreeds[j].id == idRaza) {
-                breedFound = allBreeds[j]
-                found = true
-                }
-            }
-            if (found) {
-                res.json(breedFound)
-            } else {
-                res.status(404).send('<h1>ERROR: breed not found. Try again!</h1>')
+            for (let j = 0; j < allBreeds.length; j++) {
+            if (allBreeds[j].id == idRaza) { return res.json(allBreeds[j]) }
             } 
+            return res.status(404).send('<h1>ERROR: breed not found. Try again!</h1>') 
         })
-    
 })
 
 router.get('/temperament', async function (req, res) {
@@ -106,8 +94,7 @@ router.get('/temperament', async function (req, res) {
       res.json(temps)  
     } else {
         res.status(404).send("Error getting temperaments")
-    }
-    
+    } 
 })
 
 router.post('/dog', async function (req, res) {

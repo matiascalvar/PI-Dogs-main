@@ -5,23 +5,22 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('dog', {
     id: {
-      type: DataTypes.UUID, // creo un id unico para diferenciarlo del id de la API externa
+      type: DataTypes.UUID, 
       defaultValue: DataTypes.UUIDV4, 
-      primaryKey : true // check
+      primaryKey : true
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     height: {
-      type: DataTypes.STRING, // or string?
+      type: DataTypes.STRING,
       allowNull: false,
     },
     weight: {
-      type: DataTypes.STRING, // or string?
+      type: DataTypes.STRING,
       allowNull: false,
     },
-    // should use camelcase to name tables
     life_span: {
       type: DataTypes.STRING,
     },
