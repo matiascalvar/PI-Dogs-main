@@ -107,18 +107,24 @@ router.post('/dog', async function (req, res) {
             arrTemps.push (tempSearched.dataValues.id)
         }        
     }
+    try {
 
-    const dog = await Dog.create({
-        name,
-        weight,
-        height,
-        life_span: `${lifeSpan} years`,
-        image,
-        origin: "db"
-    });
-    arrTemps.forEach(async (temp) => (await dog.addTemperaments(temp)))
- 
-    res.json(dog)
+        const dog = await Dog.create({
+            name,
+            weight,
+            height,
+            life_span: `${lifeSpan} years`,
+            image,
+            origin: "db"
+        });
+        arrTemps.forEach(async (temp) => (await dog.addTemperaments(temp)))
+     
+        res.json(dog)
+    }
+    catch (e) {
+        console.log(e)
+        res.status(404).send('An error has ocurred', e)
+    }
 })
  
 module.exports = router;
