@@ -1,5 +1,4 @@
 .card {
-  /* border: 2px solid black; */
   width: 23vw;
   height: 37vh;
   margin: 10px;
@@ -26,7 +25,7 @@
   text-decoration: none;
 }
 .foot {
-  text-align: start;
+  /* text-align: start; */
   padding: 5px 15px;
 }
 .foot p {

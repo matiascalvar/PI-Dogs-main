@@ -8,10 +8,10 @@ function Card({ name, image, temperament, weight, id }) {
         <img src={`${image}`} alt={`${name}`} />
         <div className={styles.foot}>
           <p>
-            <span>&#128062;Temperament:</span> {temperament}
+            <span>&#128313;Temperament:</span> {temperament}
           </p>
           <p>
-            <span>&#128062;Weight:</span> {weight} kg
+            <span>&#128313;Weight:</span> {weight} kg
           </p>
         </div>
       </div>
