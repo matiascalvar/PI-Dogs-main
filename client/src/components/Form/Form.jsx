@@ -144,7 +144,7 @@ export default function Form() {
               onChange={handleInputChange}
               name="minHeight"
               type="number"
-              placeholder="minHeight"
+              placeholder="Min Height"
               value={input.minHeight}
             />
 
@@ -152,7 +152,7 @@ export default function Form() {
               onChange={handleInputChange}
               name="maxHeight"
               type="number"
-              placeholder="maxHeight"
+              placeholder="Max Height"
               value={input.maxHeight}
             />
           </div>
@@ -166,13 +166,13 @@ export default function Form() {
               onChange={handleInputChange}
               name="minWeight"
               type="number"
-              placeholder="minWeight"
+              placeholder="Min Weight"
             />
             <input
               onChange={handleInputChange}
               name="maxWeight"
               type="number"
-              placeholder="maxWeight"
+              placeholder="Max Weight"
             />
           </div>
           {errors.minWeight && <span>{errors.minWeight}</span>}
@@ -185,13 +185,13 @@ export default function Form() {
               onChange={handleInputChange}
               name="minLifeSpan"
               type="number"
-              placeholder="minLifeSpan"
+              placeholder="Min Life Span"
             />
             <input
               onChange={handleInputChange}
               name="maxLifeSpan"
               type="number"
-              placeholder="maxLifeSpan"
+              placeholder="Max Life Span"
             />
           </div>
           {errors.minLifeSpan && <span>{errors.minLifeSpan}</span>}
