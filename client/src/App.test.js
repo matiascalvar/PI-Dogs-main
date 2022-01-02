@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 import Loading from '../src/components/Loading/Loading';
+import Card from '../src/components/Card/Card'
 
 describe('App', () => {
   test('renders Welcome to Dogs! title', () => {
@@ -21,6 +22,6 @@ describe('Loading', () => {
   test('renders Loading component', () => {
     render(<Loading />);
     expect(screen.getByText('Loading...')).toBeInTheDocument();
-    screen.debug();
+    // screen.debug();
   });
 });
