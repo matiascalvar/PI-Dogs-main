@@ -107,9 +107,9 @@ function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
               id="origin"
               onChange={handleChangeOrigin}
             >
-              <option value="ALL">All</option>
-              <option value="db">DB</option>
-              <option value="api">API</option>
+              <option value="ALL">DB & API</option>
+              <option value="db">Only DB</option>
+              <option value="api">Only API</option>
             </select>
           </label>
         </div>
