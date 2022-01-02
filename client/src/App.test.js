@@ -1,8 +1,26 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import Loading from '../src/components/Loading/Loading';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App', () => {
+  test('renders Welcome to Dogs! title', () => {
+    render(<App />);
+    const linkElement = screen.getByText(/Welcome to Dogs!/i);
+    expect(linkElement).toBeInTheDocument();
+  });
+})
+
+describe('App', () => {
+  test('renders App component', () => {
+    render(<App />);
+  });
+});
+
+
+describe('Loading', () => {
+  test('renders Loading component', () => {
+    render(<Loading />);
+    expect(screen.getByText('Loading...')).toBeInTheDocument();
+    screen.debug();
+  });
 });
