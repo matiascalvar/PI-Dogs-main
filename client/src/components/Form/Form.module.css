@@ -64,7 +64,7 @@
   height: 80px;
   /* background-color: cadetblue; */
   margin: 10px auto;
-  margin-bottom: 15px;
+  margin-bottom: 36px;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
@@ -104,6 +104,9 @@
 .ul {
   background-color: #ccc;
   border-radius: 5px;
+}
+.ul:hover {
+  color: red;
 }
 
 .success {
