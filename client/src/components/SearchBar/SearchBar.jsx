@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import styles from "./SearchBar.module.css";
 import sortimg from "./img/download.png";
 import filterimg from "./img/filter.png";
-import addicon from "./img/mas.png";
 
 function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
   const temperaments = useSelector((state) => state.temperaments);
@@ -126,9 +125,15 @@ function SearchBar({ weightAlpha, search, filterTemp, filterOrigin }) {
         &nbsp;
       </div>
 
-      <span className={styles.dot}></span>
+      {/* <span className={styles.dot}></span>
       <Link to="/form" title="Add breed">
         <img className={styles.addimg} src={addicon} alt="add icon" />
+      </Link> */}
+      <Link to="/form">
+        <div className={styles.circle}>
+          <div className={styles.hori}></div>
+          <div className={styles.vert}></div>
+        </div>
       </Link>
     </>
   );

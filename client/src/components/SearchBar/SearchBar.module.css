@@ -107,27 +107,40 @@ input:checked + .slider:before {
   color: black;
 }
 
-.addimg {
+.circle {
+  background-color: grey;
   width: 60px;
-  /* padding: 5px; */
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  top: 3px;
+  top: 2px;
   right: 45px;
+  transition: background-color 0.5s;
 }
-.addimg:hover {
-  width: 65px;
+.vert {
+  background-color: #ccc;
+  height: 50px;
+  width: 8px;
+  border-radius: 10px;
+  z-index: 5;
+}
+.hori {
+  background-color: #ccc;
+  width: 50px;
+  height: 8px;
+  border-radius: 10px;
+  position: absolute;
+}
+.circle:hover {
+  width: 64px;
+  height: 64px;
   top: 0px;
   right: 43px;
-}
-.dot {
-  width: 45px;
-  height: 45px;
-  /* padding: 5px; */
-  position: absolute;
-  top: 12px;
-  right: 50px;
-  background-color: #ccc;
-  border-radius: 50%;
+  background-color: rgb(65, 63, 63);
 }
 
 @media (max-width: 992px) {

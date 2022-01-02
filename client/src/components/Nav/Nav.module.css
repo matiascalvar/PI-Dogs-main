@@ -3,7 +3,8 @@
 }
 .head {
   height: 4rem;
-  background-color: #353432;
+  /* background-color: #353432; */
+  background-color: #69788d;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
