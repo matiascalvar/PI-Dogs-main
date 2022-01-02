@@ -25,6 +25,10 @@
   text-transform: capitalize;
   text-decoration: none;
 }
+.foot {
+  text-align: start;
+  padding: 5px 15px;
+}
 .foot p {
   margin: 0 5px;
   display: block;

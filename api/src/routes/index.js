@@ -100,7 +100,7 @@ router.get('/temperament', async function (req, res) {
 router.post('/dog', async function (req, res) {
     let { name, height, weight, lifeSpan, temps, image } = req.body
     var arrTemps = []
-
+    if (!name || !height || !weight) return res.status(404).send('Error. Some required elements are missing')
     for (let i = 0; i < temps.length; i++) {
         let tempSearched = await Temperament.findOne({ where: { name: temps[i] } });
         if (tempSearched !== null) {
