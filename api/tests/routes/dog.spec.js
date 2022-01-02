@@ -16,7 +16,7 @@ const dog = {
   weight: '1 - 3'
 };
 
-describe('---Dogs routes---', () => {
+describe('----Dogs routes----', () => {
   before(() => conn.authenticate()
   .catch((err) => {
     console.error('Unable to connect to the database:', err);
