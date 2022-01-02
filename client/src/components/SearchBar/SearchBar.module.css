@@ -122,14 +122,14 @@ input:checked + .slider:before {
   transition: background-color 0.5s;
 }
 .vert {
-  background-color: #ccc;
+  background-color: white;
   height: 50px;
   width: 8px;
   border-radius: 10px;
   z-index: 5;
 }
 .hori {
-  background-color: #ccc;
+  background-color: white;
   width: 50px;
   height: 8px;
   border-radius: 10px;
