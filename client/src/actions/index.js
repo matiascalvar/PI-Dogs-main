@@ -8,6 +8,9 @@ export const WEIGHT_DESC = 'WEIGHT_DESC';
 export const SEARCH_BREED = 'SEARCH_BREED';
 export const FILTER_BY_TEMP = 'FILTER_BY_TEMP';
 export const FILTER_BY_ORIGIN = 'FILTER_BY_ORIGIN';
+export const GET_DETAIL = 'GET_DETAIL';
+export const CLEAR_DETAIL = 'CLEAR_DETAIL';
+export const ADD_BREED = 'ADD_BREED';
 
 export const getBreeds = () => async dispatch => {
     const response = await axios.get("http://localhost:3001/dogs")
@@ -52,24 +55,3 @@ export function addBreed(breed) {
 }
 
 export const clearDetail = () => ({type: 'CLEAR_DETAIL'})
-
-
-// export function getBreeds () {
-//     return async function (dispatch) {
-//         try {
-//             let breeds = await axios.get("http://localhost:3001/dogs")
-//             return dispatch({type: 'GET_BREEDS', payload: breeds.data})
-//         }
-//         catch (e) { console.log(e) }
-//     }
-// }
-
-// export function getTemps () {
-//     return async function (dispatch) {
-//         try {
-//             let temps = await axios.get("http://localhost:3001/temperament")
-//             return dispatch({type: 'GET_TEMPERAMENT', payload: temps.data})
-//         }
-//         catch (e) { console.log(e) }
-//     }
-// }

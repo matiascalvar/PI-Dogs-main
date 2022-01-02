@@ -19,9 +19,9 @@ export default function Form() {
     temperaments: [],
     created: false,
   });
-
   const [errors, setErrors] = useState({});
 
+  // Handler functions
   function handleTemps(e) {
     if (input.temperaments.length < 4) {
       let concat = input[e.target.name].concat(e.target.value);
@@ -43,7 +43,6 @@ export default function Form() {
       ...input,
       [e.target.name]: e.target.value,
       created: false,
-      // height : value en input con name height
     });
     setErrors(
       validation({
@@ -51,7 +50,6 @@ export default function Form() {
         [e.target.name]: e.target.value,
       })
     );
-    console.log(input.minHeight, " ", input.maxHeight);
   }
   function validation(input) {
     var errors = {};
@@ -126,7 +124,6 @@ export default function Form() {
     }
   }
 
-  /////////////////////////////////////////////////////////////////////////////
   return (
     <>
       <Header />
@@ -160,7 +157,6 @@ export default function Form() {
               placeholder="Min Height"
               value={input.minHeight}
             />
-
             <input
               onChange={handleInputChange}
               name="maxHeight"

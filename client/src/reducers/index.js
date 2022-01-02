@@ -1,4 +1,4 @@
-import { GET_BREEDS, GET_TEMPERAMENT, ORDER_ZA, ORDER_AZ, WEIGHT_ASC, WEIGHT_DESC, SEARCH_BREED, FILTER_BY_TEMP, FILTER_BY_ORIGIN } from "../actions";
+import { GET_BREEDS, GET_TEMPERAMENT, ORDER_ZA, ORDER_AZ, WEIGHT_ASC, WEIGHT_DESC, SEARCH_BREED, FILTER_BY_TEMP, FILTER_BY_ORIGIN, GET_DETAIL, CLEAR_DETAIL, ADD_BREED } from "../actions";
 
 var initialState = {
     breeds: [],
@@ -110,32 +110,18 @@ export default function reducer (state = initialState, action) {
                       breedsToFilter: breedsByOrigin
                   }
               }
-
           }
-
-
-
-
-
-
-
-
-
-
-
-
-
-      case 'GET_DETAIL':
+      case GET_DETAIL:
           return {
               ...state,
               breedDetail: action.payload
           }
-      case 'CLEAR_DETAIL':
+      case CLEAR_DETAIL:
           return {
               ...state,
               breedDetail: {}
           }
-      case 'ADD_BREED':
+      case ADD_BREED:
           return {
               ...state,
           }
