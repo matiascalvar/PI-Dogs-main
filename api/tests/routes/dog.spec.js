@@ -1,8 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const { expect } = require('chai');
+// const { expect } = require('chai');
 const session = require('supertest-session');
 const app = require('../../src/app.js');
 const { Dog, conn } = require('../../src/db.js');
+let chaiHttp = require('chai-http');
+const expect = require('chai').expect;
+let chai = require('chai');
 
 const agent = session(app);
 const dog = {
@@ -20,7 +23,47 @@ describe('Dogs routes', () => {
     .then(() => Dog.create(dog)));
   describe('GET /dogs', () => {
     it('should get 200', () =>
-      agent.get('/dogs').expect(200)
+      agent.get('/dogs/1').expect(200)
     );
   });
+  // 
+  describe('GET /dogs/:idRaza', () => {
+    it('should get 200 with a valid id', () =>
+      agent.get('/dogs/1').expect(200)
+      
+    );
+    it('should get 404 with an invalid id', () =>
+      agent.get('/dogs/999').expect(404)
+    );
+  });
+  // 
+  describe('GET /temperament', () => {
+    it('should get 200', () =>
+      agent.get('/temperament').expect(200)
+    );
+  });
+});
+
+chai.use(chaiHttp);
+const url = 'http://localhost:3001';
+
+
+describe('Add a new breed: ',()=>{
+ it('should add a new breed to database', (done) => {
+ chai.request(url)
+ .post('/dog')
+ .send({
+    name: "india",
+    height: "15 -30",
+    weight: "25 - 45",
+    lifeSpan: "12 - 15",
+    temps: ["Friendly", "Guardian", "Charming"],
+    image: "https://i.postimg.cc/PxPV9krK/IMG-20160308-175510.jpg"
+})
+ .end( function(err,res){
+ console.log(res.body)
+ expect(res).to.have.status(200);
+ done();
+ });
+ });
 });
