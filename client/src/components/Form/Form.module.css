@@ -120,3 +120,16 @@
   align-items: center;
   font-weight: bold;
 }
+
+@media (max-width: 992px) {
+  .card {
+    width: 60vw;
+    height: 95vh;
+  }
+  .success {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+  }
+}
