@@ -46,3 +46,14 @@ a {
   text-decoration: none;
   color: black;
 }
+
+@media (max-width: 992px) {
+  .card {
+    height: 400px;
+    width: 70vw;
+  }
+  .card img {
+    max-height: 30vw;
+    height: auto;
+  }
+}
