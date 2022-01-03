@@ -4,7 +4,7 @@ var initialState = {
     breeds: [],
     breedsToFilter: [],
     temperaments: [],
-    breedDetail: {} // Ojo puede generar problemas
+    breedDetail: {}
 }
 
 export default function reducer (state = initialState, action) {
@@ -68,13 +68,13 @@ export default function reducer (state = initialState, action) {
           } else {
               let searchedBreed = []
               if (state.breedsToFilter[0] !== false) {
-                searchedBreed = state.breedsToFilter.filter((breed) => breed.name.includes(action.payload))
+                  searchedBreed = state.breedsToFilter.filter((breed) => breed.name.includes(action.payload))
               }
               if (searchedBreed.length === 0) {
                   return {
                       ...state,
                       breedsToFilter: [false]
-                }
+                  }
               }
               else {
                   return {
@@ -82,7 +82,7 @@ export default function reducer (state = initialState, action) {
                       breedsToFilter: searchedBreed
                   }
               }
-          }
+          };
       case FILTER_BY_TEMP:
           return {
               ...state,
@@ -110,21 +110,21 @@ export default function reducer (state = initialState, action) {
                       breedsToFilter: breedsByOrigin
                   }
               }
-          }
+          };
       case GET_DETAIL:
           return {
               ...state,
               breedDetail: action.payload
-          }
+          };
       case CLEAR_DETAIL:
           return {
               ...state,
               breedDetail: {}
-          }
+          };
       case ADD_BREED:
           return {
               ...state,
-          }
+          };
       default:
         return { ...state };
     };

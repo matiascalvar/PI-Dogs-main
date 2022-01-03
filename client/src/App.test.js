@@ -1,7 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 import Loading from '../src/components/Loading/Loading';
-import Card from '../src/components/Card/Card'
+
+describe('App', () => {
+  test('renders App component', () => {
+    render(<App />);
+  });
+});
 
 describe('App', () => {
   test('renders Welcome to Dogs! title', () => {
@@ -10,13 +15,6 @@ describe('App', () => {
     expect(linkElement).toBeInTheDocument();
   });
 })
-
-describe('App', () => {
-  test('renders App component', () => {
-    render(<App />);
-  });
-});
-
 
 describe('Loading', () => {
   test('renders Loading component', () => {

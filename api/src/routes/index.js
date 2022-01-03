@@ -2,14 +2,9 @@ const { Router } = require('express');
 const axios = require('axios');
 const { Dog, Temperament } = require('../db.js')
 const { Sequelize } = require('sequelize');
-const {API_KEY} = process.env
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
+const { API_KEY } = process.env;
 
 const router = Router();
-// router.use(express.json());
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
 
 function getBreeds() {
     let breedsAPI = axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
