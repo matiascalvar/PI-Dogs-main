@@ -1,5 +1,4 @@
 .button {
-  /* background-color: grey; */
   background-color: #69788d;
   border: none;
   color: white;
@@ -17,7 +16,6 @@
 }
 
 .title {
-  /* font-family: "Roboto"; */
   font-size: 5rem;
 }
 .dogimg img {

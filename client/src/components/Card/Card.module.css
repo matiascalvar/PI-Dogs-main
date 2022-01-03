@@ -13,7 +13,6 @@
 }
 .card img {
   max-height: 12vw;
-  /* height: 230px; */
   height: auto;
   border-radius: 5px;
 }
@@ -25,7 +24,6 @@
   text-decoration: none;
 }
 .foot {
-  /* text-align: start; */
   padding: 5px 15px;
 }
 .foot p {

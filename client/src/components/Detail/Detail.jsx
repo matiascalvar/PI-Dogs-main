@@ -5,6 +5,7 @@ import { clearDetail, searchBreedDetail } from "../../actions";
 import Header from "../Header/Header.jsx";
 import Loading from "../Loading/Loading";
 import styles from "./Detail.module.css";
+
 function Detail() {
   const dispatch = useDispatch();
   let { id } = useParams();

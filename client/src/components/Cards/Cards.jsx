@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Card from "../Card/Card.jsx";
 import { getBreeds, getTemps } from "../../actions/index";
+import Card from "../Card/Card.jsx";
 import styles from "./Cards.module.css";
 import Loading from "../Loading/Loading.jsx";
 import saddog from "../../images/sad.png";
@@ -21,7 +21,6 @@ function Cards() {
   const nextPag = () => {
     if (breeds.length >= 8) {
       setCurrentPage(currentPage + 8);
-      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
   const prevPag = () => {
@@ -89,6 +88,4 @@ function Cards() {
   }
 }
 
-// const mapStateToProps = (state) => ({ breeds: state.breeds });
-// export default connect(mapStateToProps, { getBreeds })(Cards);
 export default Cards;
