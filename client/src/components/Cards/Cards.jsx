@@ -81,6 +81,15 @@ function Cards() {
             ►
           </button>
         </div>
+        {/* Para devolver una lista de las páginas */}
+
+        {/* {(() => {
+          const list = [];
+          for (let i = 0; i < totalBreedsPages; i++) {
+            list.push(<button key={i}>{i + 1}</button>);
+          }
+          return list;
+        })()} */}
       </>
     );
   } else {
