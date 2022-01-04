@@ -1,3 +1,8 @@
+/* .mainDiv {
+  background-image: url("../../images/dogs-bg.jpg");
+  width: 100vw;
+  height: 100vh;
+} */
 .button {
   background-color: #69788d;
   border: none;
@@ -18,11 +23,13 @@
 
 .title {
   font-size: 5rem;
+  font-weight: 700;
 }
 .dogimg img {
   width: 600px;
   margin: auto;
   max-width: 600px;
+  /* display: none; */
 }
 
 @media (max-width: 992px) {

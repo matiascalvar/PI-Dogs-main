@@ -4,7 +4,7 @@ import styles from "./LandingPage.module.css";
 
 function LandingPage() {
   return (
-    <div>
+    <div className={styles.mainDiv}>
       <h1 className={styles.title}>Welcome to Dogs!</h1>
       <div className={styles.dogimg}>
         <Link to="/home">
