@@ -1,13 +1,13 @@
 import React from "react";
-import SearchBar from "../SearchBar/SearchBar";
 import { useDispatch } from "react-redux";
-import styles from "./Nav.module.css";
+import SearchBar from "../SearchBar/SearchBar";
 import {
   weightAndAlpha,
   searchBreed,
   filterTemp,
   filterOrigin,
 } from "../../actions";
+import styles from "./Nav.module.css";
 
 function Nav() {
   const dispatch = useDispatch();

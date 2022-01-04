@@ -12,7 +12,7 @@ function LandingPage() {
         </Link>
       </div>
       <Link to="/home">
-        <button className={styles.button}>Enter to Dogs</button>
+        <button className={styles.button}>Enter to site</button>
       </Link>
     </div>
   );

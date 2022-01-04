@@ -1,6 +1,6 @@
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import React, { useEffect } from "react";
 import { clearDetail, searchBreedDetail } from "../../actions";
 import Header from "../Header/Header.jsx";
 import Loading from "../Loading/Loading";
