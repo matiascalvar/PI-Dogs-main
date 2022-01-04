@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addBreed } from "../../actions";
+import Footer from "../Footer/Footer";
 import Header from "../Header/Header.jsx";
 import styles from "./Form.module.css";
 
@@ -250,6 +251,7 @@ export default function Form() {
           </div>
         ) : null}
       </form>
+      <Footer />
     </>
   );
 }

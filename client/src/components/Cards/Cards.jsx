@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBreeds, getTemps } from "../../actions/index";
 import Card from "../Card/Card.jsx";
+import Footer from "../Footer/Footer.jsx";
 import styles from "./Cards.module.css";
 import Loading from "../Loading/Loading.jsx";
 import saddog from "../../images/sad.png";
@@ -45,6 +46,7 @@ function Cards() {
       <>
         <h1>Breed not found</h1>
         <img src={saddog} alt="sad dog" />
+        <Footer />
       </>
     );
   } else if (breeds[0] === "db empty") {
@@ -90,6 +92,7 @@ function Cards() {
           }
           return list;
         })()} */}
+        <Footer />
       </>
     );
   } else {

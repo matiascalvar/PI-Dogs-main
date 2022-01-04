@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearDetail, searchBreedDetail } from "../../actions";
 import Header from "../Header/Header.jsx";
+import Footer from "../Footer/Footer.jsx";
 import Loading from "../Loading/Loading";
 import styles from "./Detail.module.css";
 
@@ -21,6 +22,7 @@ function Detail() {
       <>
         <Header />
         <Loading />
+        <Footer />
       </>
     );
   else {
@@ -45,6 +47,7 @@ function Detail() {
             </p>
           </div>
         </div>
+        <Footer />
       </>
     );
   }
