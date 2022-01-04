@@ -54,6 +54,7 @@ function Cards() {
       <>
         <h1>Database empty!</h1>
         <img src={saddog} alt="sad dog" />
+        <Footer />
       </>
     );
   } else if (breeds.length) {
