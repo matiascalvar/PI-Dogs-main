@@ -100,8 +100,10 @@
 .ul {
   background-color: #ccc;
   border-radius: 5px;
+  list-style-type: none;
+  padding: 0;
 }
-.ul:hover {
+.ul li:hover {
   color: red;
 }
 
