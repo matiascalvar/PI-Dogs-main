@@ -105,6 +105,7 @@
 }
 .ul li:hover {
   color: red;
+  cursor: pointer;
 }
 
 .success {
