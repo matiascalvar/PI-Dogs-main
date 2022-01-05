@@ -12,9 +12,10 @@ function Detail() {
   let { id } = useParams();
 
   useEffect(() => {
-    dispatch(searchBreedDetail(id));
     dispatch(clearDetail());
+    dispatch(searchBreedDetail(id));
   }, [dispatch, id]);
+
   const breedDetail = useSelector((state) => state.breedDetail);
 
   if (Object.keys(breedDetail).length === 0)
