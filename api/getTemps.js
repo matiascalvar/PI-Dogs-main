@@ -20,7 +20,6 @@ module.exports.getTempsFromAPI = function getTempsFromAPI() {
             }
             filteredTemps = Array.from(filteredTemps)
            
-            // const tempsFinal = await filteredTemps.map(temp => Temperament.create({name: temp}))
             filteredTemps.forEach(temp => Temperament.create({name: temp}))
           })
          
