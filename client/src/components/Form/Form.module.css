@@ -123,6 +123,9 @@
   align-items: center;
   font-weight: bold;
 }
+/* .ul li a {
+  text-decoration: none;
+} */
 
 @media (max-width: 992px) {
   .card {
@@ -137,6 +140,26 @@
   }
 }
 
-/* .ul li a {
-  text-decoration: none;
-} */
+@media (max-width: 992px) {
+  .card {
+    width: 85vw;
+    height: auto;
+  }
+  .button {
+    margin: auto;
+    margin-bottom: 5px;
+  }
+  .buttonDisabled {
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: auto;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    width: 300px;
+  }
+}

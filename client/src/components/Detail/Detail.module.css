@@ -30,3 +30,28 @@
   font-weight: bold;
   font-size: larger;
 }
+
+@media (max-width: 992px) {
+  .card {
+    width: 90vw;
+    height: 80vh;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgb(173, 165, 165);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 90vw;
+    height: 80vh;
+  }
+  .card img {
+    max-width: 65vw;
+    max-height: 550px;
+    width: auto;
+    height: auto;
+  }
+}

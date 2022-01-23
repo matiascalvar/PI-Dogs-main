@@ -251,7 +251,7 @@ export default function Form() {
           </div>
         ) : null}
       </form>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

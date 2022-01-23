@@ -22,12 +22,19 @@ function Cards() {
   const nextPag = () => {
     if (breeds.length >= 8) {
       setCurrentPage(currentPage + 8);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
   const prevPag = () => {
-    currentPage > 0
-      ? setCurrentPage(currentPage - 8)
-      : setCurrentPage(currentPage);
+    // currentPage > 0
+    //   ? setCurrentPage(currentPage - 8)
+    //   : setCurrentPage(currentPage);
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 8);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      setCurrentPage(currentPage);
+    }
   };
 
   if (currentPage !== 0) {
