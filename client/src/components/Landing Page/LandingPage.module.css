@@ -1,8 +1,3 @@
-/* .mainDiv {
-  background-image: url("../../images/dogs-bg.jpg");
-  width: 100vw;
-  height: 100vh;
-} */
 .button {
   background-color: #69788d;
   border: none;
@@ -35,5 +30,11 @@
 @media (max-width: 992px) {
   .dogimg img {
     width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dogimg img {
+    width: 250px;
   }
 }
