@@ -23,8 +23,9 @@ const {getTempsFromAPI} = require('./getTemps.js')
 
 // Syncing all the models at once.
 // {force : true}
+// 
 conn.sync({force : true}).then(() => {
-  server.listen(3001, () => {
+  server.listen(process.env.PORT || 3001, () => {
     
     getTempsFromAPI()
     console.log('---Listening at 3001---');
